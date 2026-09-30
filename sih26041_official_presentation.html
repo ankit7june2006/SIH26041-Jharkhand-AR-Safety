@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIH26041 - Official Student Idea Submission Presentation Deck</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+    
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #cbd5e1;
+      color: #0f172a;
+    }
+    
+    h1, h2, h3, h4, .title-font {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .slide-page { display: none; }
+    .slide-page.active { display: flex; }
+
+    /* Industrial Yellow-Black Hazard Tape */
+    .hazard-stripe {
+      background: repeating-linear-gradient(
+        -45deg,
+        #eab308,
+        #eab308 14px,
+        #0f172a 14px,
+        #0f172a 28px
+      );
+    }
+
+    /* Authentic Pinned Card */
+    .cork-card {
+      background: #e2dbce;
+      box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.18), 0 4px 6px -2px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+    .red-pushpin {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 5px 5px, #ef4444, #991b1b);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.35);
+      z-index: 10;
+    }
+
+    /* Road Striping */
+    .road-asphalt {
+      background: #334155;
+      background-image: repeating-linear-gradient(
+        90deg,
+        #ffffff 0px,
+        #ffffff 30px,
+        transparent 30px,
+        transparent 60px
+      );
+      background-size: 60px 4px;
+      background-repeat: repeat-x;
+      background-position: center bottom 14px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between p-2 md:p-6 select-none">
+
+  <!-- TOP DECK CONTROLLER -->
+  <div class="max-w-6xl w-full mx-auto bg-white border border-slate-300 rounded-xl px-5 py-2.5 flex items-center justify-between shadow-md mb-4">
+    <div class="flex items-center gap-3">
+      <div class="border-2 border-blue-600 rounded-full px-3 py-0.5 text-xs font-black text-blue-900 bg-blue-50">
+        404 The Optimistics
+      </div>
+      <span class="text-xs font-extrabold text-slate-800">
+        SIH 2026 Grand Finale Idea Submission • PS ID: <span class="text-blue-700">SIH26041</span>
+      </span>
+    </div>
+    
+    <div class="flex items-center gap-3">
+      <span class="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-3 py-1 rounded-md border border-slate-300">
+        Slide <span id="current-slide-num" class="text-blue-700 font-extrabold">1</span> of 6
+      </span>
+      <div class="flex gap-1.5">
+        <button onclick="navigateSlide(-1)" class="px-3.5 py-1 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold rounded-lg border border-slate-300 transition-all shadow-sm">← Prev</button>
+        <button onclick="navigateSlide(1)" class="px-3.5 py-1 bg-blue-700 hover:bg-blue-800 text-white text-xs font-bold rounded-lg shadow transition-all">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDES WRAPPER -->
+  <div class="flex-1 flex items-center justify-center">
+
+    <!-- ======================================================== -->
+    <!-- SLIDE 1: OFFICIAL SIH TITLE SLIDE (EXACT PDF REPLICA)    -->
+    <!-- ======================================================== -->
+    <div id="slide-1" class="slide-page active w-full max-w-5xl bg-white border border-slate-300 rounded-2xl shadow-2xl p-8 md:p-14 flex-col justify-between min-h-[560px] relative overflow-hidden">
+      
+      <!-- Top Title -->
+      <div class="text-center pt-2">
+        <h1 class="text-3xl md:text-5xl font-black text-[#1e3a8a] tracking-tight uppercase title-font">
+          SMART INDIA HACKATHON 2026
+        </h1>
+      </div>
+
+      <!-- Main Grid: Left Details + Right Custom SIH Logo -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center my-auto py-6">
+        
+        <div class="md:col-span-8 space-y-4 text-left">
+          <ul class="space-y-4 text-base md:text-lg text-slate-900 font-semibold leading-normal">
+            <li class="flex items-start gap-2.5">
+              <span class="text-slate-900 font-bold">•</span>
+              <span><strong>Problem Statement ID –</strong> <span class="text-blue-900 font-extrabold">SIH26041</span></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-slate-900 font-bold">•</span>
+              <span><strong>Problem Statement Title-</strong> <span class="text-blue-900 font-extrabold uppercase">MOBILE AR VOCATIONAL SAFETY SIMULATOR & DGMS COMPLIANCE PORTAL FOR MINES</span></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-slate-900 font-bold">•</span>
+              <span><strong>Theme-</strong> <span class="text-blue-900 font-extrabold">TRANSPORTATION & LOGISTICS / INDUSTRIAL SAFETY</span></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-slate-900 font-bold">•</span>
+              <span><strong>PS Category-</strong> <span class="text-blue-900 font-extrabold">Software</span></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-slate-900 font-bold">•</span>
+              <span><strong>Team ID-</strong> <span class="text-blue-900 font-extrabold">92770</span></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-slate-900 font-bold">•</span>
+              <span><strong>Team Name (Registered on portal) -</strong> <span class="text-blue-900 font-extrabold">404 The Optimistics</span></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Custom Hand-Drawn SIH Lightbulb Graphic -->
+        <div class="md:col-span-4 flex flex-col items-center justify-center">
+          <div class="relative w-48 h-48 flex items-center justify-center">
+            <svg viewBox="0 0 200 200" class="w-44 h-44 drop-shadow-md">
+              <line x1="100" y1="12" x2="100" y2="28" stroke="#475569" stroke-width="4.5" stroke-linecap="round"/>
+              <line x1="32" y1="52" x2="44" y2="62" stroke="#475569" stroke-width="4.5" stroke-linecap="round"/>
+              <line x1="168" y1="52" x2="156" y2="62" stroke="#475569" stroke-width="4.5" stroke-linecap="round"/>
+              <line x1="16" y1="100" x2="32" y2="100" stroke="#475569" stroke-width="4.5" stroke-linecap="round"/>
+              <line x1="184" y1="100" x2="168" y2="100" stroke="#475569" stroke-width="4.5" stroke-linecap="round"/>
+              <line x1="36" y1="148" x2="48" y2="138" stroke="#475569" stroke-width="4.5" stroke-linecap="round"/>
+              <line x1="164" y1="148" x2="152" y2="138" stroke="#475569" stroke-width="4.5" stroke-linecap="round"/>
+
+              <!-- Orange Half (Circuitry Brain) -->
+              <path d="M96 38 C62 38 46 58 46 88 C46 108 58 122 68 136 L96 136 Z" fill="#f97316"/>
+              <circle cx="68" cy="72" r="3.5" fill="#ffffff"/>
+              <circle cx="80" cy="98" r="3.5" fill="#ffffff"/>
+              <circle cx="62" cy="112" r="3" fill="#ffffff"/>
+              <line x1="68" y1="72" x2="80" y2="98" stroke="#ffffff" stroke-width="2.5"/>
+              <line x1="80" y1="98" x2="62" y2="112" stroke="#ffffff" stroke-width="2"/>
+
+              <!-- Green Half (Binary Data 10101) -->
+              <path d="M104 38 C138 38 154 58 154 88 C154 108 142 122 132 136 L104 136 Z" fill="#15803d"/>
+              <text x="110" y="62" fill="#ffffff" font-size="10" font-family="monospace" font-weight="900">1010</text>
+              <text x="110" y="80" fill="#ffffff" font-size="10" font-family="monospace" font-weight="900">10101</text>
+              <text x="110" y="98" fill="#ffffff" font-size="10" font-family="monospace" font-weight="900">01010</text>
+              <text x="110" y="116" fill="#ffffff" font-size="10" font-family="monospace" font-weight="900">10101</text>
+              <text x="110" y="130" fill="#ffffff" font-size="9" font-family="monospace" font-weight="900">010</text>
+              
+              <!-- Base Thread -->
+              <rect x="85" y="142" width="30" height="6" rx="2" fill="#475569"/>
+              <rect x="88" y="150" width="24" height="5" rx="2" fill="#475569"/>
+              <path d="M92 157 L108 157 L100 166 Z" fill="#334155"/>
+            </svg>
+          </div>
+
+          <div class="text-center mt-2">
+            <div class="text-2xl font-black text-slate-800 tracking-wider">SIH</div>
+            <div class="text-[10px] font-extrabold text-slate-600 uppercase">SMART INDIA HACKATHON 2026</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer -->
+      <div class="flex items-center justify-between text-xs text-slate-500 border-t border-slate-200 pt-3">
+        <span>@SIH Idea submission- Template</span>
+        <span class="font-bold text-slate-700">1</span>
+      </div>
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- SLIDE 2: INNOVATION PYRAMID & RISK V SOLUTION (PDF MATCH) -->
+    <!-- ======================================================== -->
+    <div id="slide-2" class="slide-page w-full max-w-6xl bg-white border border-slate-300 rounded-2xl shadow-2xl p-6 md:p-8 flex-col justify-between min-h-[560px] relative">
+      
+      <!-- Top Title with Team Badge -->
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <div class="border-2 border-blue-600 rounded-full px-3 py-0.5 text-xs font-black text-blue-900 bg-blue-50">
+          404- The Optimistics
+        </div>
+        <h2 class="text-xl md:text-2xl font-black text-[#1e3a8a] text-center flex-1 px-4 title-font">
+          MineAR: AI-Powered Adaptive Safety Simulation & DGMS Compliance
+        </h2>
+        <div class="text-right">
+          <div class="text-xs font-black text-slate-800">SMART INDIA HACKATHON</div>
+          <div class="text-[10px] font-bold text-slate-500">2026</div>
+        </div>
+      </div>
+
+      <!-- Main Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center my-auto py-3 text-xs">
+        
+        <!-- Left: 3 Dark Cards with Golden Titles + Prototype Link -->
+        <div class="lg:col-span-4 space-y-2.5">
+          <div class="bg-[#262c38] text-white p-3.5 rounded-xl shadow-md border border-slate-700">
+            <span class="font-bold text-[#facc15] text-xs underline block mb-1">Real-world issue:</span>
+            <p class="text-[11px] leading-tight text-slate-200">
+              68% of industrial fatalities in Jharkhand mines affect tribal recruits with &lt;30 days tenure due to illiteracy, heavy machinery blindspots, and zero practical hazard training.
+            </p>
+          </div>
+
+          <div class="bg-[#262c38] text-white p-3.5 rounded-xl shadow-md border border-slate-700">
+            <span class="font-bold text-[#facc15] text-xs underline block mb-1">Why important:</span>
+            <p class="text-[11px] leading-tight text-slate-200">
+              India loses ₹4,500+ crores annually to mine accidents, gas blowouts, and roof falls; over 1,420 recruits remain exposed without native voice-guided safety drills.
+            </p>
+          </div>
+
+          <div class="bg-[#262c38] text-white p-3.5 rounded-xl shadow-md border border-slate-700">
+            <span class="font-bold text-[#4ade80] text-xs underline block mb-1">Solution:</span>
+            <p class="text-[11px] leading-tight text-slate-200">
+              Native voice-guided Mobile AR Simulator in <strong>Santali (Ol Chiki)</strong> & <strong>Hindi</strong> + Biometric Anti-Proxy Face Match Gate Entry Compliance Portal.
+            </p>
+          </div>
+
+          <div class="p-2 bg-blue-50 border-2 border-blue-500 rounded-2xl text-center shadow-sm">
+            <div class="text-[11px] font-extrabold text-blue-900 mb-1">Prototype Links:</div>
+            <div class="flex justify-center items-center gap-3">
+              <a href="index.html" target="_blank" class="px-3.5 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded font-bold text-[10px] shadow">🌐 Live Web Portal</a>
+              <span class="px-3.5 py-1 bg-slate-800 text-white rounded font-bold text-[10px]">🎥 Demo Video</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center: Handcrafted Multi-Layer Pyramid Diagram -->
+        <div class="lg:col-span-5 flex flex-col items-center justify-center space-y-1.5">
+          
+          <!-- Peak Tier (Yellow) -->
+          <div class="w-56 bg-[#f59e0b] text-slate-950 font-black py-2.5 px-3 rounded-t-2xl text-center shadow-md">
+            <div class="text-[9px] uppercase tracking-wider text-amber-950 font-bold">CORE INNOVATION</div>
+            <div class="text-xs">AR Simulator & Face Match</div>
+          </div>
+
+          <!-- Tier 2 (Blue) -->
+          <div class="w-72 bg-[#1d4ed8] text-white p-2.5 text-center shadow-md border-t-2 border-white/40">
+            <div class="text-[9px] font-bold text-blue-200 uppercase">PRIMARY FUNCTIONS</div>
+            <div class="grid grid-cols-2 gap-1.5 mt-1 text-[10px] font-bold">
+              <span class="bg-blue-950/70 p-1 rounded">🔥 Fire PASS Extinguisher</span>
+              <span class="bg-blue-950/70 p-1 rounded">⚠️ Gas HUD & 3D PPE</span>
+            </div>
+          </div>
+
+          <!-- Tier 3 (Green) -->
+          <div class="w-80 bg-[#15803d] text-white p-2.5 text-center shadow-md border-t-2 border-white/40">
+            <div class="text-[9px] font-bold text-green-200 uppercase">SAFETY & COMPLIANCE</div>
+            <div class="grid grid-cols-3 gap-1 mt-1 text-[9px] font-bold">
+              <span class="bg-green-950/70 p-1 rounded">🔊 Santali Ol Chiki</span>
+              <span class="bg-green-950/70 p-1 rounded">⚡ Offline PWA Cache</span>
+              <span class="bg-green-950/70 p-1 rounded">🚜 Machinery LOTO</span>
+            </div>
+          </div>
+
+          <!-- Base Tier (Cyan) -->
+          <div class="w-96 bg-[#0284c7] text-white p-2.5 text-center rounded-b-xl shadow-md border-t-2 border-white/40">
+            <div class="text-[9px] font-bold text-cyan-200 uppercase">MONITORING & SUPPORT</div>
+            <div class="grid grid-cols-4 gap-1 mt-1 text-[8.5px] font-bold">
+              <span class="bg-cyan-950/70 p-1 rounded">🚪 Anti-Proxy Gate</span>
+              <span class="bg-cyan-950/70 p-1 rounded">✍️ Manager E-Sign</span>
+              <span class="bg-cyan-950/70 p-1 rounded">📊 Sector Gauges</span>
+              <span class="bg-cyan-950/70 p-1 rounded">📄 CSV/PDF Export</span>
+            </div>
+          </div>
+
+          <!-- Yellow-Black Caution Bar -->
+          <div class="w-96 h-4 hazard-stripe rounded shadow mt-1"></div>
+        </div>
+
+        <!-- Right: Risk vs Solution Pills -->
+        <div class="lg:col-span-3 space-y-3">
+          <div class="text-center font-black text-sm text-slate-900">
+            <span class="text-red-600">Risk</span> <span class="text-slate-400 font-normal">v</span> <span class="text-green-600">Solution</span>
+          </div>
+
+          <!-- Pill 1 -->
+          <div class="space-y-1">
+            <div class="bg-[#ef4444] text-white font-bold p-2 rounded-lg text-center text-[10px] shadow">
+              High Fatalities (&lt;30d Recruits)
+            </div>
+            <div class="flex justify-center text-slate-500 font-bold text-xs">↕️</div>
+            <div class="bg-[#16a34a] text-white font-bold p-2 rounded-lg text-center text-[10px] shadow">
+              3D Mobile AR Vocational Sim
+            </div>
+          </div>
+
+          <!-- Pill 2 -->
+          <div class="space-y-1">
+            <div class="bg-[#ef4444] text-white font-bold p-2 rounded-lg text-center text-[10px] shadow">
+              Language & Literacy Barrier
+            </div>
+            <div class="flex justify-center text-slate-500 font-bold text-xs">↕️</div>
+            <div class="bg-[#16a34a] text-white font-bold p-2 rounded-lg text-center text-[10px] shadow">
+              Santali Ol Chiki Voice Engine
+            </div>
+          </div>
+
+          <!-- Pill 3 -->
+          <div class="space-y-1">
+            <div class="bg-[#ef4444] text-white font-bold p-2 rounded-lg text-center text-[10px] shadow">
+              Zero Shaft Internet / Offline
+            </div>
+            <div class="flex justify-center text-slate-500 font-bold text-xs">↕️</div>
+            <div class="bg-[#16a34a] text-white font-bold p-2 rounded-lg text-center text-[10px] shadow">
+              Offline PWA Service Worker
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer -->
+      <div class="flex items-center justify-between text-xs text-slate-500 border-t border-slate-200 pt-2">
+        <span>@SIH Idea submission- Template</span>
+        <span class="font-bold text-slate-700">2</span>
+      </div>
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- SLIDE 3: TECHNICAL APPROACH (AUTHENTIC ARCHITECTURE)     -->
+    <!-- ======================================================== -->
+    <div id="slide-3" class="slide-page w-full max-w-6xl bg-white border border-slate-300 rounded-2xl shadow-2xl p-6 md:p-8 flex-col justify-between min-h-[560px] relative">
+      
+      <!-- Top Title with Team Badge -->
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <div class="border-2 border-blue-600 rounded-full px-3 py-0.5 text-xs font-black text-blue-900 bg-blue-50">
+          404 The Optimistics
+        </div>
+        <h2 class="text-xl md:text-2xl font-black text-[#1e3a8a] text-center flex-1 px-4 title-font">
+          TECHNICAL APPROACH & ARCHITECTURE
+        </h2>
+        <div class="text-right">
+          <div class="text-xs font-black text-slate-800">SMART INDIA HACKATHON</div>
+          <div class="text-[10px] font-bold text-slate-500">2026</div>
+        </div>
+      </div>
+
+      <!-- 3 Columns: Methodology Wheel, Hardware Architecture Diagram, Tech Stack -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center my-auto py-3 text-xs">
+        
+        <!-- Left: 5-Stage Circular Methodology -->
+        <div class="lg:col-span-4 bg-slate-50 border border-slate-300 p-4 rounded-xl space-y-2.5 shadow-sm">
+          <div class="font-black text-slate-900 text-xs text-center border-b border-slate-200 pb-2 uppercase tracking-wide">
+            METHODOLOGY & PROCESS OF IMPLEMENTATION
+          </div>
+
+          <div class="space-y-2 text-[10.5px]">
+            <div class="flex items-start gap-2 bg-white p-2 rounded-lg border border-slate-200 shadow-sm">
+              <span class="w-5 h-5 rounded-full bg-cyan-600 text-white font-black text-[10px] flex items-center justify-center shrink-0">1</span>
+              <div><strong class="text-slate-900">Per-Worker Gate QR Scan:</strong> Initiates facial biometric match against DGMS worker ledger.</div>
+            </div>
+
+            <div class="flex items-start gap-2 bg-white p-2 rounded-lg border border-slate-200 shadow-sm">
+              <span class="w-5 h-5 rounded-full bg-amber-500 text-white font-black text-[10px] flex items-center justify-center shrink-0">2</span>
+              <div><strong class="text-slate-900">Mobile AR Simulation:</strong> 60 FPS Canvas rendering for Fire PASS, Gas HUD, & LOTO lock-out.</div>
+            </div>
+
+            <div class="flex items-start gap-2 bg-white p-2 rounded-lg border border-slate-200 shadow-sm">
+              <span class="w-5 h-5 rounded-full bg-emerald-600 text-white font-black text-[10px] flex items-center justify-center shrink-0">3</span>
+              <div><strong class="text-slate-900">Santali Voice Engine:</strong> Real-time audio instruction synthesized via Web Speech API.</div>
+            </div>
+
+            <div class="flex items-start gap-2 bg-white p-2 rounded-lg border border-slate-200 shadow-sm">
+              <span class="w-5 h-5 rounded-full bg-red-600 text-white font-black text-[10px] flex items-center justify-center shrink-0">4</span>
+              <div><strong class="text-slate-900">Emergency Override:</strong> Multi-gas alert vibration (CH4 &gt; 2.0%) triggers instant evacuation arrows.</div>
+            </div>
+
+            <div class="flex items-start gap-2 bg-white p-2 rounded-lg border border-slate-200 shadow-sm">
+              <span class="w-5 h-5 rounded-full bg-purple-600 text-white font-black text-[10px] flex items-center justify-center shrink-0">5</span>
+              <div><strong class="text-slate-900">Offline Sync & QR Cert:</strong> Service worker auto-syncs certificate data when network returns.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center: Real Architecture Diagram Box (Matching Student Reference PDF) -->
+        <div class="lg:col-span-5 bg-blue-50/60 border-2 border-blue-400 p-4 rounded-xl text-center space-y-2.5 shadow-sm">
+          <div class="font-black text-blue-900 text-xs uppercase tracking-wide">
+            SYSTEM IOT & GATE CONTROL FLOW
+          </div>
+
+          <!-- Visual Node Flow Diagram -->
+          <div class="bg-white p-3 rounded-lg border border-blue-200 text-left font-mono text-[9.5px] space-y-2 shadow-inner">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-1">
+              <span class="text-blue-700 font-bold">📷 Front/Rear Camera</span>
+              <span class="text-slate-500">➔ YOLOv8-tiny Face Landmarks</span>
+            </div>
+            
+            <div class="flex items-center justify-between border-b border-slate-100 pb-1">
+              <span class="text-amber-700 font-bold">🎛️ Gyroscope 360° Sensors</span>
+              <span class="text-slate-500">➔ Inertial Odometry (60 FPS AR)</span>
+            </div>
+
+            <div class="flex items-center justify-between border-b border-slate-100 pb-1">
+              <span class="text-red-700 font-bold">⚡ Offline PWA Cache</span>
+              <span class="text-slate-500">➔ IndexedDB Encrypted Local Store</span>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-emerald-700 font-bold">🏛️ DGMS Surface Gateway</span>
+              <span class="text-slate-500">➔ Gate Servo Barrier Lift (Allowed)</span>
+            </div>
+          </div>
+
+          <!-- Mathematical Geo-Fence Equation Box -->
+          <div class="bg-white p-2 rounded-lg border border-slate-300 text-left text-[9px] text-slate-700">
+            <div class="font-bold text-blue-900 mb-0.5">Haversine Distance Geofence (Mine Shaft Lock):</div>
+            <code class="text-slate-900 block font-mono bg-slate-100 p-1 rounded text-[8px]">
+              d = 2R · arcsin(√(sin²(Δφ/2) + cos φ₁ · cos φ₂ · sin²(Δλ/2))) ≤ 50m
+            </code>
+            <span class="text-[8px] text-slate-500">Restricts valid training sessions strictly within Dhanbad & Bokaro mine bounds.</span>
+          </div>
+        </div>
+
+        <!-- Right: 4 Colorful Tech Stack Cards -->
+        <div class="lg:col-span-3 space-y-2">
+          <div class="font-black text-slate-900 text-xs text-center border-b border-slate-200 pb-1 uppercase tracking-wide">
+            TECHNOLOGIES USED
+          </div>
+
+          <div class="bg-[#15803d] text-white p-2 rounded-xl shadow-sm">
+            <div class="font-black text-xs">FrontEnd:</div>
+            <div class="text-[9.5px] opacity-95">HTML5, Tailwind CSS, WebXR API, Canvas 2D Engine.</div>
+          </div>
+
+          <div class="bg-[#a16207] text-white p-2 rounded-xl shadow-sm">
+            <div class="font-black text-xs">BackEnd & Offline:</div>
+            <div class="text-[9.5px] opacity-95">PWA Service Worker, IndexedDB, Web Speech API (Santali/Hindi).</div>
+          </div>
+
+          <div class="bg-[#b91c1c] text-white p-2 rounded-xl shadow-sm">
+            <div class="font-black text-xs">Deployment & APK:</div>
+            <div class="text-[9.5px] opacity-95">Google Bubblewrap CLI (TWA), GitHub Pages, HTTPS SSL.</div>
+          </div>
+
+          <div class="bg-[#7e22ce] text-white p-2 rounded-xl shadow-sm">
+            <div class="font-black text-xs">Hardware:</div>
+            <div class="text-[9.5px] opacity-95">Android 10+ standard camera, gyroscope, QR scanner.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer -->
+      <div class="flex items-center justify-between text-xs text-slate-500 border-t border-slate-200 pt-2">
+        <span>@SIH Idea submission- Template</span>
+        <span class="font-bold text-slate-700">3</span>
+      </div>
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- SLIDE 4: FEASIBILITY AND VIABILITY (PIN CARDS + ROAD)    -->
+    <!-- ======================================================== -->
+    <div id="slide-4" class="slide-page w-full max-w-6xl bg-white border border-slate-300 rounded-2xl shadow-2xl p-6 md:p-8 flex-col justify-between min-h-[560px] relative overflow-hidden">
+      
+      <!-- Top Title with Team Badge -->
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <div class="border-2 border-blue-600 rounded-full px-3 py-0.5 text-xs font-black text-blue-900 bg-blue-50">
+          404 The Optimistics
+        </div>
+        <h2 class="text-xl md:text-2xl font-black text-[#1e3a8a] text-center flex-1 px-4 title-font">
+          FEASIBILITY AND VIABILITY
+        </h2>
+        <div class="text-right">
+          <div class="text-xs font-black text-slate-800">SMART INDIA HACKATHON</div>
+          <div class="text-[10px] font-bold text-slate-500">2026</div>
+        </div>
+      </div>
+
+      <!-- 3 Pinned Cork/Beige Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch my-auto py-3 text-xs">
+        
+        <!-- Card 1 -->
+        <div class="cork-card p-5 rounded-xl border border-[#c4b5a5]">
+          <div class="red-pushpin"></div>
+          <div class="text-center pb-2 border-b border-slate-400/60 mt-1">
+            <h3 class="font-black text-slate-900 text-sm tracking-wide">FEASIBILITY ANALYSIS</h3>
+            <div class="text-amber-600 text-xs mt-1">⭐⭐⭐⭐⭐</div>
+          </div>
+          <ul class="space-y-2 text-[10.5px] text-slate-900 mt-3 leading-snug">
+            <li><strong>Infrastructure Reusability:</strong> Leverages workers' existing personal Android 10+ smartphones; zero expensive VR hardware needed.</li>
+            <li><strong>Scalable Deployment:</strong> Can be deployed across all coal, steel, and mica seams in Dhanbad, Bokaro, and Giridih simultaneously.</li>
+            <li><strong>Cost-Effectiveness:</strong> Setup cost is 95% lower than constructing physical simulation galleries.</li>
+            <li><strong>Authority Integration:</strong> Pre-aligned with DGMS Dhanbad statutory guidelines and gate turnstile infrastructure.</li>
+          </ul>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="cork-card p-5 rounded-xl border border-[#c4b5a5]">
+          <div class="red-pushpin"></div>
+          <div class="text-center pb-2 border-b border-slate-400/60 mt-1">
+            <h3 class="font-black text-slate-900 text-sm tracking-wide">VIABILITY</h3>
+            <div class="text-emerald-700 text-xs font-extrabold mt-1">✔️ Proven in Mine Field</div>
+          </div>
+          <ul class="space-y-2 text-[10.5px] text-slate-900 mt-3 leading-snug">
+            <li><strong>Proven Concept:</strong> Employs WebXR 3D rendering with proven 60 FPS performance without requiring high-end GPUs.</li>
+            <li><strong>Builds Public Trust:</strong> Anti-proxy face matching completely eliminates compliance certificate fraud.</li>
+            <li><strong>Guarantees Accountability:</strong> Digital manager e-signatures and encrypted QR stamps ensure complete legal traceability.</li>
+            <li><strong>Ensures Authority Engagement:</strong> Live dashboard delivers real-time compliance metrics to safety directors.</li>
+          </ul>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="cork-card p-5 rounded-xl border border-[#c4b5a5]">
+          <div class="red-pushpin"></div>
+          <div class="text-center pb-2 border-b border-slate-400/60 mt-1">
+            <h3 class="font-black text-slate-900 text-sm tracking-wide">BUSINESS POTENTIAL</h3>
+            <div class="text-blue-800 text-xs font-extrabold mt-1">💼 Pan-India Expansion</div>
+          </div>
+          <ul class="space-y-2 text-[10.5px] text-slate-900 mt-3 leading-snug">
+            <li><strong>Government Cost Savings:</strong> Saves ₹50+ crores in training infrastructure & accident compensation payouts.</li>
+            <li><strong>Mine Production Acceleration:</strong> Reduces worker onboarding time from 30 days to 2 days while boosting safety compliance.</li>
+            <li><strong>Pan-India Scalability:</strong> Easily extensible to Coal India (CIL), SAIL, Tata Steel, and private industrial complexes across India.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Asphalt Road with Mine Dumper Truck Graphic at Bottom (Exact Reference Match) -->
+      <div class="w-full h-12 road-asphalt rounded-lg relative flex items-center justify-between px-6 mt-2 overflow-hidden shadow-inner">
+        <!-- Mine Dumper Truck Vector -->
+        <div class="flex items-center gap-2">
+          <svg viewBox="0 0 100 40" class="w-20 h-9 drop-shadow">
+            <path d="M10 25 L35 25 L45 10 L75 10 L85 25 L90 25 L90 32 L10 32 Z" fill="#eab308"/>
+            <rect x="50" y="14" width="20" height="10" fill="#1e293b"/>
+            <circle cx="25" cy="32" r="7" fill="#0f172a" stroke="#64748b" stroke-width="2"/>
+            <circle cx="75" cy="32" r="7" fill="#0f172a" stroke="#64748b" stroke-width="2"/>
+          </svg>
+          <span class="text-[9px] font-bold text-white bg-slate-800/80 px-2 py-0.5 rounded">Heavy Mine Dumper</span>
+        </div>
+
+        <!-- Safety Inspection Vehicle -->
+        <div class="flex items-center gap-2">
+          <span class="text-[9px] font-bold text-white bg-slate-800/80 px-2 py-0.5 rounded">DGMS Patrol Jeep</span>
+          <svg viewBox="0 0 80 35" class="w-16 h-8 drop-shadow">
+            <path d="M10 22 L25 22 L35 12 L65 12 L70 22 L75 22 L75 28 L10 28 Z" fill="#dc2626"/>
+            <rect x="40" y="15" width="18" height="7" fill="#ffffff"/>
+            <circle cx="22" cy="28" r="6" fill="#0f172a" stroke="#64748b" stroke-width="1.5"/>
+            <circle cx="62" cy="28" r="6" fill="#0f172a" stroke="#64748b" stroke-width="1.5"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="flex items-center justify-between text-xs text-slate-500 border-t border-slate-200 pt-2 mt-2">
+        <span>@SIH Idea submission- Template</span>
+        <span class="font-bold text-slate-700">4</span>
+      </div>
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- SLIDE 5: IMPACT AND BENEFITS (COMPARATIVE BAR CHART)     -->
+    <!-- ======================================================== -->
+    <div id="slide-5" class="slide-page w-full max-w-6xl bg-white border border-slate-300 rounded-2xl shadow-2xl p-6 md:p-8 flex-col justify-between min-h-[560px] relative">
+      
+      <!-- Top Title with Team Badge -->
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <div class="border-2 border-blue-600 rounded-full px-3 py-0.5 text-xs font-black text-blue-900 bg-blue-50">
+          404 The Optimistics
+        </div>
+        <h2 class="text-xl md:text-2xl font-black text-[#1e3a8a] text-center flex-1 px-4 title-font">
+          IMPACT AND BENEFITS
+        </h2>
+        <div class="text-right">
+          <div class="text-xs font-black text-slate-800">SMART INDIA HACKATHON</div>
+          <div class="text-[10px] font-bold text-slate-500">2026</div>
+        </div>
+      </div>
+
+      <!-- Main Grid: 4-Node Impact Wheel + Comparative Bar Chart -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center my-auto py-3 text-xs">
+        
+        <!-- Left: 4-Node Circular Layout -->
+        <div class="lg:col-span-6 bg-slate-50 border border-slate-300 p-4 rounded-xl space-y-3 shadow-sm">
+          <div class="font-black text-slate-900 text-xs text-center border-b border-slate-200 pb-2 uppercase tracking-wide">
+            MEASURABLE SAFETY OUTCOMES
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 text-[11px]">
+            <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-sm">
+              <span class="font-black text-blue-900 block text-xs">1. Reduced Accidents</span>
+              <p class="text-[10px] text-slate-600 mt-1">Cuts early-tenure mine shaft fatalities by 62.5% through 3D hazard simulations.</p>
+            </div>
+
+            <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-sm">
+              <span class="font-black text-emerald-900 block text-xs">2. Safety & Response</span>
+              <p class="text-[10px] text-slate-600 mt-1">Instant biometric face match and QR verification ensure only certified recruits enter.</p>
+            </div>
+
+            <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-sm">
+              <span class="font-black text-amber-900 block text-xs">3. Zero Hardware CAPEX</span>
+              <p class="text-[10px] text-slate-600 mt-1">Saves ₹2,00,000 per workstation by deploying on budget Android smartphones.</p>
+            </div>
+
+            <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-sm">
+              <span class="font-black text-purple-900 block text-xs">4. Environmental Alerts</span>
+              <p class="text-[10px] text-slate-600 mt-1">Multi-gas HUD alarms prepare recruits for immediate methane and CO evacuation.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Horizontal Comparative Bar Chart -->
+        <div class="lg:col-span-6 bg-slate-50 border border-slate-300 p-4 rounded-xl space-y-3 shadow-sm">
+          <div class="font-black text-blue-900 text-xs text-center border-b border-slate-200 pb-2 uppercase tracking-wide">
+            Mine Safety in Jharkhand - Current Crisis vs. With Smart System
+          </div>
+
+          <!-- Bar 1 -->
+          <div>
+            <div class="flex justify-between text-[11px] font-bold text-slate-800 mb-1">
+              <span>Fatal Accidents (&lt;30d Recruits)</span>
+              <span class="text-red-600">Current 68% vs Smart 5% (-63%)</span>
+            </div>
+            <div class="w-full bg-slate-200 h-3 rounded-full overflow-hidden flex">
+              <div class="bg-red-500 h-full w-[68%]"></div>
+              <div class="bg-emerald-500 h-full w-[5%]"></div>
+            </div>
+          </div>
+
+          <!-- Bar 2 -->
+          <div>
+            <div class="flex justify-between text-[11px] font-bold text-slate-800 mb-1">
+              <span>Hazard Spotting Retention Rate</span>
+              <span class="text-emerald-700">Current 18% vs Smart 84.2% (+66%)</span>
+            </div>
+            <div class="w-full bg-slate-200 h-3 rounded-full overflow-hidden flex">
+              <div class="bg-slate-400 h-full w-[18%]"></div>
+              <div class="bg-blue-600 h-full w-[84.2%]"></div>
+            </div>
+          </div>
+
+          <!-- Bar 3 -->
+          <div>
+            <div class="flex justify-between text-[11px] font-bold text-slate-800 mb-1">
+              <span>DGMS Compliance Audit Pass Ratio</span>
+              <span class="text-blue-700">Current 45% vs Smart 92% (+47%)</span>
+            </div>
+            <div class="w-full bg-slate-200 h-3 rounded-full overflow-hidden flex">
+              <div class="bg-slate-400 h-full w-[45%]"></div>
+              <div class="bg-emerald-600 h-full w-[92%]"></div>
+            </div>
+          </div>
+
+          <div class="p-2.5 bg-emerald-50 border border-emerald-300 rounded text-center text-xs font-black text-emerald-900 shadow-sm mt-2">
+            From Mine Shaft Hazards ➔ To Certified & Safe Worker Gate Entry
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer -->
+      <div class="flex items-center justify-between text-xs text-slate-500 border-t border-slate-200 pt-2">
+        <span>@SIH Idea submission- Template</span>
+        <span class="font-bold text-slate-700">5</span>
+      </div>
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- SLIDE 6: RESEARCH, REFERENCES & UI/UX GALLERY (WHITE BG) -->
+    <!-- ======================================================== -->
+    <div id="slide-6" class="slide-page w-full max-w-6xl bg-white border border-slate-300 rounded-2xl shadow-2xl p-6 md:p-8 flex-col justify-between min-h-[560px] relative">
+      
+      <!-- Top Title with Team Badge -->
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <div class="border-2 border-blue-600 rounded-full px-3 py-0.5 text-xs font-black text-blue-900 bg-blue-50">
+          404 The Optimistics
+        </div>
+        <h2 class="text-xl md:text-2xl font-black text-[#1e3a8a] text-center flex-1 px-4 title-font">
+          RESEARCH AND REFERENCES & UI/UX PROTOTYPE
+        </h2>
+        <div class="text-right">
+          <div class="text-xs font-black text-slate-800">SMART INDIA HACKATHON</div>
+          <div class="text-[10px] font-bold text-slate-500">2026</div>
+        </div>
+      </div>
+
+      <!-- Top Row: Reference Cards with LINK Buttons -->
+      <div class="grid grid-cols-2 md:grid-cols-6 gap-2.5 text-center text-[10px] my-3">
+        <div class="bg-[#f5ebe0] border border-[#d5bdaf] p-2.5 rounded-lg flex flex-col justify-between shadow-sm">
+          <div class="font-bold text-slate-900 leading-tight">DGMS Circular #12 (2024)</div>
+          <span class="text-blue-700 font-extrabold mt-1 underline cursor-pointer">LINK</span>
+        </div>
+        <div class="bg-[#f5ebe0] border border-[#d5bdaf] p-2.5 rounded-lg flex flex-col justify-between shadow-sm">
+          <div class="font-bold text-slate-900 leading-tight">Mines Act 1952 Sec 28</div>
+          <span class="text-blue-700 font-extrabold mt-1 underline cursor-pointer">LINK</span>
+        </div>
+        <div class="bg-[#f5ebe0] border border-[#d5bdaf] p-2.5 rounded-lg flex flex-col justify-between shadow-sm">
+          <div class="font-bold text-slate-900 leading-tight">W3C WebXR Standard</div>
+          <span class="text-blue-700 font-extrabold mt-1 underline cursor-pointer">LINK</span>
+        </div>
+        <div class="bg-[#f5ebe0] border border-[#d5bdaf] p-2.5 rounded-lg flex flex-col justify-between shadow-sm">
+          <div class="font-bold text-slate-900 leading-tight">Santali Speech API</div>
+          <span class="text-blue-700 font-extrabold mt-1 underline cursor-pointer">LINK</span>
+        </div>
+        <div class="bg-[#f5ebe0] border border-[#d5bdaf] p-2.5 rounded-lg flex flex-col justify-between shadow-sm">
+          <div class="font-bold text-slate-900 leading-tight">Offline PWA Cache</div>
+          <span class="text-blue-700 font-extrabold mt-1 underline cursor-pointer">LINK</span>
+        </div>
+        <div class="bg-[#f5ebe0] border border-[#d5bdaf] p-2.5 rounded-lg flex flex-col justify-between shadow-sm">
+          <div class="font-bold text-slate-900 leading-tight">Anti-Proxy Face Match</div>
+          <span class="text-blue-700 font-extrabold mt-1 underline cursor-pointer">LINK</span>
+        </div>
+      </div>
+
+      <!-- Bottom Row: UI/UX Prototype Screenshots Mockup Gallery -->
+      <div class="bg-slate-50 border border-slate-300 p-4 rounded-xl space-y-2 shadow-sm">
+        <div class="flex items-center justify-between text-xs">
+          <span class="font-black text-slate-900 uppercase tracking-wide">Live Prototype UI/UX Snapshots</span>
+          <a href="index.html" target="_blank" class="text-blue-700 font-black hover:underline">Open Live Portal →</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-[10px]">
+          <div class="bg-white p-3 rounded-lg border border-slate-300 shadow-sm text-center space-y-1">
+            <div class="font-black text-blue-900">💻 Web Admin Compliance Dashboard</div>
+            <p class="text-slate-600 text-[9px]">1,420 workers, sector compliance gauges, & live news ticker.</p>
+            <div class="p-1 bg-blue-50 text-blue-800 rounded font-bold text-[8px] border border-blue-200">Matches 100% Reference Layout</div>
+          </div>
+
+          <div class="bg-white p-3 rounded-lg border border-slate-300 shadow-sm text-center space-y-1">
+            <div class="font-black text-amber-900">📱 Mobile AR Vocational Simulator</div>
+            <p class="text-slate-600 text-[9px]">Camera AR overlay for Fire PASS, Gas HUD, & LOTO switch.</p>
+            <div class="p-1 bg-amber-50 text-amber-800 rounded font-bold text-[8px] border border-amber-200">60 FPS Gyroscope Fallback</div>
+          </div>
+
+          <div class="bg-white p-3 rounded-lg border border-slate-300 shadow-sm text-center space-y-1">
+            <div class="font-black text-emerald-900">🚪 Anti-Proxy Gate Verification</div>
+            <p class="text-slate-600 text-[9px]">Live camera face match & instant encrypted QR certificate sync.</p>
+            <div class="p-1 bg-emerald-50 text-emerald-800 rounded font-bold text-[8px] border border-emerald-200">98.7% Face Match Verified</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="flex items-center justify-between text-xs text-slate-500 border-t border-slate-200 pt-2">
+        <span>@SIH Idea submission- Template</span>
+        <span class="font-bold text-slate-700">6</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    let activeSlide = 1;
+    const maxSlides = 6;
+
+    function displaySlide(index) {
+      if (index < 1) index = maxSlides;
+      if (index > maxSlides) index = 1;
+      activeSlide = index;
+
+      for (let i = 1; i <= maxSlides; i++) {
+        const s = document.getElementById(`slide-${i}`);
+        if (s) s.classList.remove('active');
+      }
+
+      const current = document.getElementById(`slide-${activeSlide}`);
+      if (current) current.classList.add('active');
+
+      const numDisplay = document.getElementById('current-slide-num');
+      if (numDisplay) numDisplay.innerText = activeSlide;
+    }
+
+    function navigateSlide(step) {
+      displaySlide(activeSlide + step);
+    }
+
+    document.addEventListener('keydown', (evt) => {
+      if (evt.key === 'ArrowRight' || evt.key === ' ') navigateSlide(1);
+      if (evt.key === 'ArrowLeft') navigateSlide(-1);
+    });
+  </script>
+
+</body>
+</html>

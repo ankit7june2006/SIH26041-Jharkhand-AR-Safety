@@ -1,0 +1,331 @@
+/* Jharkhand Industrial AR Safety & Vocational Certification Platform - SIH Ultra-Attractive Theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap');
+
+:root {
+  --bg-dark: #060b19;
+  --panel-bg: #0c1427;
+  --card-bg: #111b32;
+  --border-color: #1e293b;
+  --accent-cyan: #06b6d4;
+  --accent-blue: #3b82f6;
+  --accent-emerald: #10b981;
+  --accent-red: #ef4444;
+  --accent-amber: #f59e0b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-dark);
+  color: #e2e8f0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #0c1427;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}
+
+/* Holographic Glassmorphism Panels */
+.glass-panel {
+  background: rgba(12, 20, 39, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(6, 182, 212, 0.18);
+  border-radius: 0.85rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.glass-panel-glow {
+  background: rgba(12, 20, 39, 0.94);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
+}
+
+.red-alert-card {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.22) 0%, rgba(12, 20, 39, 0.96) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.65);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+  animation: alertPulse 2s infinite alternate;
+}
+
+@keyframes alertPulse {
+  0% { box-shadow: 0 0 8px rgba(239, 68, 68, 0.2); border-color: rgba(239, 68, 68, 0.4); }
+  100% { box-shadow: 0 0 24px rgba(239, 68, 68, 0.6); border-color: rgba(239, 68, 68, 1); }
+}
+
+.amber-alert-card {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.18) 0%, rgba(12, 20, 39, 0.96) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+}
+
+.emerald-kpi-card {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.18) 0%, rgba(12, 20, 39, 0.96) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.45);
+}
+
+.cyan-kpi-card {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.18) 0%, rgba(12, 20, 39, 0.96) 100%);
+  border: 1px solid rgba(6, 182, 212, 0.45);
+}
+
+/* Holographic Face Scan Beam Animation */
+.face-scan-beam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #06b6d4, #10b981, transparent);
+  box-shadow: 0 0 15px #06b6d4;
+  animation: scanBeam 2s linear infinite;
+  z-index: 30;
+  pointer-events: none;
+}
+
+@keyframes scanBeam {
+  0% { top: 0%; opacity: 0.9; }
+  50% { opacity: 1; }
+  100% { top: 100%; opacity: 0.9; }
+}
+
+/* Live News Ticker */
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  background: rgba(6, 182, 212, 0.08);
+  border-bottom: 1px solid rgba(6, 182, 212, 0.2);
+  padding: 4px 0;
+}
+.ticker {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: ticker 30s linear infinite;
+}
+@keyframes ticker {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
+}
+
+/* Table Styling */
+.custom-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 6px;
+}
+.custom-table th {
+  color: #94a3b8;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 8px 12px;
+  text-align: left;
+}
+.custom-table tr.worker-row {
+  background-color: rgba(17, 27, 50, 0.85);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+.custom-table tr.worker-row:hover {
+  background-color: rgba(30, 41, 59, 0.95);
+  box-shadow: inset 0 0 10px rgba(6, 182, 212, 0.2);
+}
+.custom-table tr.worker-row.active-row {
+  background-color: rgba(6, 182, 212, 0.2);
+  border-left: 3px solid #06b6d4;
+}
+.custom-table td {
+  padding: 10px 12px;
+  font-size: 0.875rem;
+}
+.custom-table tr.worker-row td:first-child {
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+.custom-table tr.worker-row td:last-child {
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+/* Badges */
+.badge-blocked {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+.badge-allowed {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+.badge-audio {
+  background-color: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+}
+
+/* Heatmap Colors */
+.hm-high { background-color: #ef4444; color: #ffffff; font-weight: 700; }
+.hm-medium { background-color: #f59e0b; color: #ffffff; font-weight: 700; }
+.hm-low { background-color: #10b981; color: #ffffff; font-weight: 700; }
+
+/* Smartphone Simulator Frame */
+.android-phone-container {
+  width: 380px;
+  height: 780px;
+  max-height: calc(100vh - 100px);
+  background: #070c18;
+  border: 12px solid #1e293b;
+  border-radius: 40px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9), 0 0 35px rgba(6, 182, 212, 0.3);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+.android-notch {
+  width: 140px;
+  height: 24px;
+  background: #1e293b;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.android-camera-lens {
+  width: 10px;
+  height: 10px;
+  background: #040814;
+  border-radius: 50%;
+  border: 1.5px solid #334155;
+  box-shadow: inset 0 0 4px #06b6d4;
+}
+
+.android-speaker {
+  width: 36px;
+  height: 4px;
+  background: #0f172a;
+  border-radius: 2px;
+}
+
+/* AR Viewport */
+.mobile-ar-viewport {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  background: #000;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(6, 182, 212, 0.5);
+  flex-shrink: 0;
+}
+
+.mobile-ar-video-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mobile-ar-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.ar-scan-line {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #06b6d4, #10b981, transparent);
+  box-shadow: 0 0 15px #06b6d4;
+  animation: arScan 2.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 25;
+}
+
+@keyframes arScan {
+  0% { top: 0%; opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { top: 100%; opacity: 0.8; }
+}
+
+.ar-crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  z-index: 20;
+}
+.ar-crosshair::before {
+  content: '';
+  position: absolute;
+  top: 13px; left: 0; width: 28px; height: 2px;
+  background: rgba(6, 182, 212, 0.9);
+}
+.ar-crosshair::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 13px; width: 2px; height: 28px;
+  background: rgba(6, 182, 212, 0.9);
+}
+
+.speaking-wave {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+.speaking-wave bar {
+  width: 3px;
+  background-color: #06b6d4;
+  border-radius: 1px;
+  animation: soundWave 0.8s ease-in-out infinite alternate;
+}
+.speaking-wave bar:nth-child(1) { height: 4px; animation-delay: 0.1s; }
+.speaking-wave bar:nth-child(2) { height: 10px; animation-delay: 0.3s; }
+.speaking-wave bar:nth-child(3) { height: 6px; animation-delay: 0.2s; }
+
+@keyframes soundWave {
+  0% { height: 3px; }
+  100% { height: 12px; }
+}

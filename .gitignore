@@ -1,0 +1,29 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Environment files and credentials
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Personal and external directories
+RITIKA NARAYAN RESUME/
+client/
+server/
+
+# Android build outputs & local caches
+.gradle/
+build/
+*/build/
+*.iml
+.idea/
+local.properties
+.cxx/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
