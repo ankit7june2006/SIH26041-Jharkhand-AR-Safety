@@ -1,0 +1,56 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-apk:
+    name: Compile Android APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install & Run Gradle Build
+        working-directory: ./android-project
+        run: |
+          gradle wrapper --gradle-version 8.2
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon --stacktrace
+
+      - name: Rename APK for Easy Identification
+        run: |
+          mkdir -p release-apk
+          cp android-project/app/build/outputs/apk/debug/*.apk release-apk/Jharkhand-AR-Safety-v1.0.apk
+
+      - name: Upload APK as Workflow Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Jharkhand-AR-Safety-v1.0-APK
+          path: release-apk/Jharkhand-AR-Safety-v1.0.apk
+
+      - name: Publish GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release delete v1.0.0 --yes || true
+          git tag -d v1.0.0 || true
+          git push origin :refs/tags/v1.0.0 || true
+          gh release create v1.0.0 release-apk/Jharkhand-AR-Safety-v1.0.apk \
+            --title "Jharkhand Industrial AR Safety APK (v1.0.0)" \
+            --notes "Official installable Android APK for SIH26041 (DGMS Dhanbad Compliant Mobile AR Simulator & Gate Clearance Portal)."
