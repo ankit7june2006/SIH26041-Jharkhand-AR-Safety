@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
+import android.webkit.JavascriptInterface;
 import android.webkit.PermissionRequest;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -12,10 +14,15 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.view.Window;
 import android.view.WindowManager;
+import java.util.Locale;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements TextToSpeech.OnInitListener {
 
     private WebView mWebView;
+    private TextToSpeech mTTS;
+    private boolean ttsReady = false;
+    private String pendingText = null;
+    private String pendingLang = null;
     private static final int PERMISSION_REQUEST_CODE = 101;
 
     @Override
@@ -26,6 +33,9 @@ public class MainActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        // Initialize Android Native Text-to-Speech Engine
+        mTTS = new TextToSpeech(this, this);
+
         mWebView = new WebView(this);
         setContentView(mWebView);
 
@@ -34,6 +44,87 @@ public class MainActivity extends Activity {
 
         // Load 100% offline bundled assets
         mWebView.loadUrl("file:///android_asset/index.html");
+    }
+
+    @Override
+    public void onInit(int status) {
+        if (status == TextToSpeech.SUCCESS && mTTS != null) {
+            ttsReady = true;
+            // Default Indian voice phonetics
+            mTTS.setLanguage(new Locale("hi", "IN"));
+            mTTS.setPitch(1.0f);
+            mTTS.setSpeechRate(0.88f);
+            if (pendingText != null) {
+                final String text = pendingText;
+                final String lang = pendingLang;
+                pendingText = null;
+                pendingLang = null;
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        speakInternal(text, lang);
+                    }
+                });
+            }
+        }
+    }
+
+    private void speakInternal(String text, String lang) {
+        try {
+            if (mTTS != null) {
+                if ("English".equalsIgnoreCase(lang) || "en".equalsIgnoreCase(lang) || "en-IN".equalsIgnoreCase(lang)) {
+                    mTTS.setLanguage(Locale.US);
+                } else {
+                    // Hindi and Santali tribal phonetics use Indian TTS engine
+                    mTTS.setLanguage(new Locale("hi", "IN"));
+                }
+                mTTS.setSpeechRate(0.86f);
+                mTTS.speak(text, TextToSpeech.QUEUE_FLUSH, null, "UTTERANCE_AR_SAFETY");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public class AndroidTTSBridge {
+        @JavascriptInterface
+        public void speak(final String text, final String lang) {
+            if (text == null || text.trim().isEmpty()) {
+                return;
+            }
+            if (!ttsReady || mTTS == null) {
+                pendingText = text;
+                pendingLang = lang;
+                return;
+            }
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    speakInternal(text, lang);
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void stop() {
+            if (mTTS != null) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            mTTS.stop();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+        }
+
+        @JavascriptInterface
+        public boolean isReady() {
+            return ttsReady;
+        }
     }
 
     private void configureWebView() {
@@ -46,6 +137,9 @@ public class MainActivity extends Activity {
         settings.setMediaPlaybackRequiresUserGesture(false);
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
+
+        // Bind Android Native TTS Bridge for APK speech support
+        mWebView.addJavascriptInterface(new AndroidTTSBridge(), "AndroidTTS");
 
         mWebView.setWebViewClient(new WebViewClient());
 
@@ -87,5 +181,18 @@ public class MainActivity extends Activity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (mTTS != null) {
+            try {
+                mTTS.stop();
+                mTTS.shutdown();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        super.onDestroy();
     }
 }

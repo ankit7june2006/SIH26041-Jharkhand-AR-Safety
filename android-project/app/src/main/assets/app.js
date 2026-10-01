@@ -130,98 +130,362 @@ let offlineLogsQueue = 14;
 
 let shiftSecondsElapsed = 24138; // 06h 42m 18s initial shift duration
 
-// Multilingual Dictionary (Santali, Hindi, English) for Modules
+// Multilingual Dictionary (Santali ᱥᱟᱱᱛᱟᱲᱤ, Hindi हिन्दी, English) for Complete 1-Tap UI Localization
 const translations = {
   Santali: {
-    fireTitle: "🔥 Fire Response & PASS Simulator (ᱥᱟᱱᱛᱟᱲᱤ)",
-    fireStatus: "1. ᱥᱮᱸᱜᱮᱞ ᱞᱟᱹᱜᱤᱫ ᱮᱠᱥᱴᱤᱝᱜᱩᱭᱤᱥᱚᱨ ᱪᱩᱱᱟᱹᱣ ᱢᱮ:",
-    passStep: "2. PASS ᱱᱤᱭᱚᱢ: ᱯᱤᱱ ᱚᱨ ᱚᱰᱚᱠ ᱢᱮ ➔ ᱱᱤᱥᱟᱱᱟ ᱵᱮᱱᱟᱣ ᱢᱮ ➔ ᱫᱟᱵᱟᱣ ᱢᱮ ➔ ᱦᱤᱞᱟᱹᱣ ᱢᱮ",
-    gasTitle: "⚠️ Toxic Gas & Confined Space HUD (ᱥᱟᱱᱛᱟᱲᱤ)",
-    ppeStatus: "3D ᱯᱤ.ᱯᱤ.ᱤ. ᱠᱤᱴ ᱪᱩᱱᱟᱹᱣ ᱢᱮ:",
-    lotoTitle: "🚜 Heavy Machinery LOTO Protocol (ᱥᱟᱱᱛᱟᱲᱤ)",
-    lotoDesc: "ᱢᱮᱥᱤᱱ ᱥᱟᱯᱷᱟ ᱞᱟᱦᱟᱨᱮ Main Breaker Off ᱠᱟᱛᱮ Lock Out Padlock ᱞᱟᱜᱟᱣ ᱢᱮ",
-    certTitle: "DGMS AR ᱥᱩᱨᱚᱠᱷᱟ ᱥᱟᱨᱴᱤᱯᱷᱤᱠᱮᱴ (ᱥᱟᱱᱛᱟᱲᱤ)",
-    passP: "1. ᱯᱤᱱ ᱚᱨ",
-    passA: "2. ᱱᱤᱥᱟᱱᱟ",
-    passS1: "3. ᱫᱟᱵᱟᱣ",
-    passS2: "4. ᱦᱤᱞᱟᱹᱣ",
-    ppeHelmet: "🪖 Mining Helmet (ᱥᱟᱱᱛᱟᱲᱤ)",
-    ppeHarness: "🦺 Safety Harness (ᱥᱟᱱᱛᱟᱲᱤ)",
-    ppeMask: "😷 Gas Rescuer Mask (ᱥᱟᱱᱛᱟᱲᱤ)",
-    ppeDetector: "📟 Gas Detector (ᱥᱟᱱᱛᱟᱲᱤ)",
-    lotoSwitchOn: "🔓 Main Power ON (Click to Lock Out)",
-    lotoSwitchOff: "🔒 LOTO Breaker Switch LOCKED OUT (Padlock Applied)",
-    quizTitle: "🎯 AR 'Spot the Hazard' Quiz (ᱥᱟᱱᱛᱟᱲᱤ)"
+    mobileAppTitle: "ᱮ.ᱟᱨ. ᱵᱷᱳᱠᱮᱥᱱᱟᱞ ᱥᱤᱢᱩᱞᱮᱴᱚᱨ",
+    offlineBadge: "⚡ ᱚᱯᱷᱞᱟᱭᱤᱱ ᱰᱤᱵᱤ ᱪᱟᱹᱞᱩ",
+    selectLang: "ᱯᱟᱹᱨᱥᱤ:",
+    headerLangLabel: "ᱯᱟᱹᱨᱥᱤ:",
+    btnAdmin: "ᱣᱮᱵᱽ ᱮᱰᱢᱤᱱ",
+    btnMobile: "ᱢᱳᱵᱟᱭᱤᱞ AR ᱮᱯ",
+
+    // Home / Onboarding
+    audioTitle: "ᱥᱟᱱᱛᱟᱲᱤ ᱛᱮ ᱟᱲᱟᱝ ᱟᱧᱡᱚᱢ ᱢᱮ",
+    audioSub: "ᱟᱲᱟᱝ ᱛᱮ ᱥᱮᱪᱮᱫ ᱟᱧᱡᱚᱢ ᱞᱟᱹᱜᱤᱫ ᱚᱛᱟᱭ ᱢᱮ",
+    hwAccelTitle: "📱 ᱢᱳᱵᱟᱭᱤᱞ ᱦᱟᱨᱰᱣᱮᱨ ᱮᱠᱥᱮᱞᱮᱨᱮᱥᱚᱱ",
+    hwAccelLbl: "ᱠᱮᱢᱮᱨᱟ AR ᱧᱮᱞ",
+    hwAccelStatus: "ᱪᱟᱹᱞᱩ (᱓᱖᱐° ᱜᱟᱭᱨᱳ)",
+    selectModuleTitle: "AR ᱥᱩᱨᱚᱠᱷᱟ ᱢᱳᱰᱤᱭᱩᱞ ᱵᱟᱪᱷᱟᱣ ᱢᱮ:",
+    mod1Title: "ᱢᱳᱰᱤᱭᱩᱞ ᱑: ᱥᱮᱸᱜᱮᱞ ᱟᱨ PASS ᱥᱤᱢᱩᱞᱮᱴᱚᱨ",
+    mod1Sub: "ᱥᱮᱸᱜᱮᱞ ᱤᱬᱤᱡ ᱟᱨ AR ᱵᱟᱧᱪᱟᱣ",
+    mod2Title: "ᱢᱳᱰᱤᱭᱩᱞ ᱒: ᱡᱚᱦᱚᱨ ᱜᱮᱥ ᱟᱨ ᱥᱩᱨᱚᱠᱷᱟ ᱡᱟᱭᱜᱟ",
+    mod2Sub: "ᱜᱮᱥ ᱰᱤᱴᱮᱠᱴᱚᱨ HUD ᱟᱨ ᱔-ᱯᱤᱥ PPE",
+    mod3Title: "ᱢᱳᱰᱤᱭᱩᱞ ᱓: ᱢᱮᱥᱤᱱ LOTO ᱥᱩᱨᱚᱠᱷᱟ ᱱᱤᱭᱚᱢ",
+    mod3Sub: "ᱞᱚᱠ-ᱟᱣᱩᱴ ᱴᱮᱜ-ᱟᱣᱩᱴ ᱯᱟᱣᱟᱨ ᱵᱚᱸᱫᱽ",
+    modCertTitle: "AR ᱠᱩᱠᱞᱤ ᱟᱨ QR ᱥᱟᱨᱴᱤᱯᱷᱤᱠᱮᱴ",
+    modCertSub: "ᱢᱮᱫ-ᱢᱩᱸᱦᱟᱹᱰ ᱪᱤᱱᱦᱟᱹᱯ ᱟᱨ ᱜᱮᱴ ᱥᱤᱝᱠ",
+
+    // Module 1: Fire & PASS
+    fireTitle: "🔥 ᱥᱮᱸᱜᱮᱞ ᱟᱨ PASS ᱥᱤᱢᱩᱞᱮᱴᱚᱨ (ᱥᱟᱱᱛᱟᱲᱤ)",
+    lblExtTitle: "᱑. ᱥᱮᱸᱜᱮᱞ ᱤᱬᱤᱡ ᱥᱟᱫᱷᱚᱱ ᱵᱟᱪᱷᱟᱣ ᱢᱮ:",
+    btnExtWater: "🚰 ᱫᱟᱜ (Water)",
+    btnExtFoam: "🧼 ᱯᱷᱳᱢ (Foam)",
+    btnExtCo2: "🧯 CO2 (ᱜᱮᱥ)",
+    btnExtPowder: "💨 ᱯᱟᱣᱰᱚᱨ (DCP)",
+    fireExtPrompt: "ᱥᱮᱸᱜᱮᱞ ᱤᱬᱤᱡ ᱞᱟᱹᱜᱤᱫ ᱪᱮᱛᱟᱱ ᱨᱮ ᱵᱟᱪᱷᱟᱣ ᱢᱮ",
+    waterDanger: "❌ ᱠᱷᱚᱛᱨᱟ! ᱵᱤᱡᱽᱞᱤ ᱟᱨ ᱠᱩᱭᱞᱟᱹ ᱥᱮᱸᱜᱮᱞ ᱨᱮ ᱫᱟᱜ ᱟᱞᱚᱢ ᱫᱩᱞᱟ! CO2 ᱵᱮᱵᱷᱟᱨ ᱢᱮ᱾",
+    extSelected: "ᱴᱷᱤᱠ ᱜᱮᱭᱟ: ᱮᱠᱥᱴᱤᱝᱜᱩᱭᱤᱥᱚᱨ ᱵᱟᱪᱷᱟᱣ ᱮᱱᱟ! ᱞᱟᱛᱟᱨ PASS ᱱᱤᱭᱚᱢ ᱯᱟᱸᱡᱟᱭ ᱢᱮ᱾",
+    firePassTitle: "᱒. PASS ᱱᱤᱭᱚᱢ ᱫᱷᱟᱯ: ᱯᱤᱱ ᱚᱨ ➔ ᱱᱤᱥᱟᱱᱟ ➔ ᱫᱟᱵᱟᱣ ➔ ᱦᱤᱞᱟᱹᱣ",
+    passP: "᱑. ᱯᱤᱱ ᱚᱨ",
+    passA: "᱒. ᱱᱤᱥᱟᱱᱟ",
+    passS1: "᱓. ᱫᱟᱵᱟᱣ",
+    passS2: "᱔. ᱦᱤᱞᱟᱹᱣ",
+
+    // Module 2: Gas & PPE
+    gasTitle: "⚠️ ᱡᱚᱦᱚᱨ ᱜᱮᱥ HUD (ᱥᱟᱱᱛᱟᱲᱤ)",
+    lblGasHudTitle: "ᱢᱟᱞᱴᱤ-ᱜᱮᱥ ᱰᱤᱴᱮᱠᱴᱚᱨ HUD",
+    lblGasWarning: "⚠️ ᱪᱮᱛᱟᱣᱱᱤ: ᱡᱟᱹᱥᱛᱤ ᱜᱮᱥ ᱧᱟᱢ ᱟᱠᱟᱱᱟ!",
+    lblPpeTitle: "ᱞᱟᱹᱠᱛᱤᱭᱟᱱ ᱓D PPE ᱠᱤᱴ ᱵᱟᱪᱷᱟᱣ ᱢᱮ:",
+    txtPpeHelmet: "🪖 ᱠᱷᱟᱫᱟᱱ ᱦᱮᱞᱢᱮᱴ",
+    txtPpeHarness: "🦺 ᱥᱮᱯᱷᱴᱤ ᱦᱟᱨᱱᱮᱥ",
+    txtPpeMask: "😷 ᱜᱮᱥ ᱢᱟᱥᱠ",
+    txtPpeDetector: "📟 ᱜᱮᱥ ᱰᱤᱴᱮᱠᱴᱚᱨ",
+    ppeVerdictInitial: "ᱵᱷᱤᱛᱨᱤ ᱵᱚᱞᱚᱱ ᱞᱟᱹᱜᱤᱫ ᱔ ᱜᱚᱴᱟᱝ PPE ᱦᱚᱨᱚᱜ ᱢᱮ᱾",
+    ppeVerdictDone: "✅ ᱡᱚᱛᱚ PPE ᱦᱚᱨᱚᱜ ᱦᱩᱭ ᱮᱱᱟ! ᱵᱚᱞᱚᱱ ᱞᱟᱹᱜᱤᱫ ᱴᱷᱤᱠ ᱜᱮᱭᱟ᱾",
+
+    // Module 3: LOTO
+    lotoTitle: "🚜 ᱢᱮᱥᱤᱱ LOTO ᱥᱩᱨᱚᱠᱷᱟ ᱱᱤᱭᱚᱢ (ᱥᱟᱱᱛᱟᱲᱤ)",
+    lotoCardTitle: "ᱞᱚᱠ-ᱟᱣᱩᱴ ᱴᱮᱜ-ᱟᱣᱩᱴ (LOTO) ᱯᱟᱣᱟᱨ ᱵᱚᱸᱫᱽ",
+    lotoCardDesc: "ᱢᱮᱥᱤᱱ ᱥᱟᱯᱷᱟ ᱞᱟᱦᱟᱨᱮ Main Breaker Off ᱠᱟᱛᱮ Lock Out ᱢᱮ",
+    lotoSwitchOn: "🔓 ᱢᱩᱬ ᱯᱟᱣᱟᱨ ON (ᱞᱚᱠ ᱞᱟᱹᱜᱤᱫ ᱚᱛᱟᱭ ᱢᱮ)",
+    lotoSwitchOff: "🔒 LOTO ᱯᱟᱣᱟᱨ ᱵᱚᱸᱫᱽ ᱮᱱᱟ (ᱛᱟᱞᱟ ᱞᱟᱜᱟᱣ ᱮᱱᱟ)",
+    lotoVerdictDanger: "⚠️ ᱪᱮᱛᱟᱣᱱᱤ: ᱢᱮᱥᱤᱱ ᱪᱟᱹᱞᱩ ᱢᱮᱱᱟᱜ-ᱟ! ᱞᱟᱦᱟᱨᱮ LOTO ᱠᱚᱨᱟᱣ ᱢᱮ᱾",
+    lotoVerdictSafe: "✅ ᱢᱮᱥᱤᱱ ᱯᱟᱣᱟᱨ ᱵᱚᱸᱫᱽ ᱮᱱᱟ᱾ ᱥᱟᱯᱷᱟ ᱠᱟᱹᱢᱤ ᱞᱟᱹᱜᱤᱫ ᱥᱩᱨᱚᱠᱷᱤᱛ ᱜᱮᱭᱟ᱾",
+
+    // Module 4: Hazard Scan & Quiz
+    examStatusTitle: "DGMS ᱠᱟᱹᱢᱤᱭᱟᱹ ᱥᱩᱨᱚᱠᱷᱟ ᱥᱴᱮᱴᱟᱥ",
+    badgeTxtFire: "ᱥᱮᱸᱜᱮᱞ PASS",
+    badgeTxtGas: "ᱜᱮᱥ & PPE",
+    badgeTxtLoto: "LOTO ᱥᱩᱭᱤᱪ",
+    badgeTxtExam: "ᱯᱚᱨᱤᱠᱷᱟ",
+    phase1Title: "🎯 ᱫᱷᱟᱯ ᱑: ᱓D ᱠᱷᱟᱫᱟᱱ ᱵᱤᱯᱚᱛ ᱪᱤᱱᱦᱟᱹᱣ",
+    phase1Desc: "ᱠᱷᱟᱫᱟᱱ ᱵᱷᱤᱛᱨᱤ ᱨᱮ ᱔ ᱜᱚᱴᱟᱝ ᱵᱤᱯᱚᱛ ᱪᱤᱱᱦᱟᱹᱣ ᱢᱮ:",
+    hazardTag1: "⚡ ᱑᱑kV ᱠᱷᱩᱞᱟᱹ ᱛᱟᱨ",
+    hazardTag2: "💨 ᱒.᱔% ᱢᱤᱛᱷᱮᱱ ᱜᱮᱥ",
+    hazardTag3: "🛒 ᱵᱤᱱᱟ ᱪᱟᱠᱟ-ᱨᱳᱠ ᱴᱨᱚᱞᱤ",
+    hazardTag4: "🪨 ᱪᱮᱛᱟᱱ ᱪᱷᱟᱛ ᱨᱟᱹᱯᱩᱫ",
+    hazardsSpottedText: "ᱪᱤᱱᱦᱟᱹᱣ ᱮᱱᱟ",
+    phase2Title: "📝 ᱫᱷᱟᱯ ᱒: DGMS ᱱᱤᱭᱚᱢ ᱠᱩᱠᱞᱤ",
+    phase2PassThresh: "ᱯᱟᱥ: ≥᱘᱐% ᱞᱟᱹᱠᱛᱤ",
+    q1Title: "᱑. ᱠᱩᱭᱞᱟᱹ ᱠᱷᱟᱫᱟᱱ ᱵᱤᱡᱽᱞᱤ ᱥᱮᱸᱜᱮᱞ ᱨᱮ ᱚᱠᱟ ᱥᱟᱫᱷᱚᱱ ᱵᱟᱝ ᱵᱮᱵᱷᱟᱨᱚᱜ-ᱟ?",
+    q1OptA: "🚰 ᱫᱟᱜ (Water Jet) - ᱠᱷᱚᱛᱨᱟ!",
+    q1OptB: "🧯 CO2 ᱜᱮᱥ",
+    q1OptC: "💨 ᱰᱨᱟᱭ ᱯᱟᱣᱰᱚᱨ (DCP)",
+    q2Title: "᱒. ᱜᱮᱥ HUD ᱨᱮ Methane (CH4) > ᱒.᱐% ᱧᱟᱢ ᱞᱮᱱᱠᱷᱟᱱ ᱯᱩᱭᱞᱩ ᱠᱟᱹᱢᱤ ᱪᱮᱫ?",
+    q2OptA: "ᱯᱷᱮᱱ ᱪᱟᱹᱞᱩ ᱠᱟᱛᱮ ᱛᱟᱦᱮᱸᱱ ᱢᱮ",
+    q2OptB: "🚨 ᱞᱚᱜᱚᱱ ᱵᱟᱦᱨᱮ ᱚᱰᱚᱠᱚᱜ ᱢᱮ ᱟᱨ ᱥᱟᱨᱫᱟᱨ ᱞᱟᱹᱭᱟᱭ ᱢᱮ",
+    q3Title: "᱓. CEA ᱱᱤᱭᱚᱢ ᱑᱑᱖ ᱞᱮᱠᱟᱛᱮ ᱠᱚᱱᱵᱷᱮᱭᱚᱨ ᱨᱳᱞᱟᱨ ᱥᱟᱯᱷᱟ ᱞᱟᱦᱟᱨᱮ ᱪᱮᱫ ᱠᱟᱹᱢᱤ ᱦᱩᱭᱩᱜ-ᱟ?",
+    q3OptA: "🔒 Breaker ᱵᱚᱸᱫᱽ ᱠᱟᱛᱮ LOTO ᱛᱟᱞᱟ ᱞᱟᱜᱟᱣ ᱢᱮ",
+    q3OptB: "ᱜᱟᱛᱮ ᱠᱟᱹᱢᱤᱭᱟᱹ ᱞᱟᱹᱭᱟᱭ ᱢᱮ",
+    lblCandScore: "ᱠᱟᱹᱢᱤᱭᱟᱹ ᱥᱠᱳᱨ:",
+    lblScoreThresh: "(ᱯᱟᱥ: ᱘᱐%)",
+    btnSubmitExam: "ᱯᱚᱨᱤᱠᱷᱟ ᱡᱚᱢᱟᱭ ᱢᱮ",
+
+    // Certificate
+    certLockTitle: "DGMS ᱥᱟᱨᱴᱤᱯᱷᱤᱠᱮᱴ ᱞᱚᱠ ᱢᱮᱱᱟᱜ-ᱟ",
+    certLockDesc: "᱘᱐% ᱥᱠᱳᱨ ᱠᱟᱛᱮ ᱚᱯᱷᱤᱥᱤᱭᱟᱞ ᱥᱟᱨᱴᱤᱯᱷᱤᱠᱮᱴ ᱠᱷᱩᱞᱟᱹᱭ ᱢᱮ",
+    certHeading: "DGMS ᱵᱷᱳᱠᱮᱥᱱᱟᱞ ᱥᱮᱯᱷᱴᱤ ᱥᱟᱨᱴᱤᱯᱷᱤᱠᱮᱴ",
+    lblBreakdownTitle: "ᱥᱩᱨᱚᱠᱷᱟ ᱵᱤᱵᱚᱨᱚᱬ:",
+    lblBkFire: "ᱥᱮᱸᱜᱮᱞ PASS ᱱᱤᱭᱚᱢ:",
+    lblBkGas: "ᱡᱚᱦᱚᱨ ᱜᱮᱥ & 3D PPE:",
+    lblBkLoto: "ᱢᱮᱥᱤᱱ LOTO ᱥᱩᱭᱤᱪ:",
+    lblBkExam: "ᱵᱤᱯᱚᱛ ᱪᱤᱱᱦᱟᱹᱣ & ᱯᱚᱨᱤᱠᱷᱟ:",
+    lblBtnClaim: "ᱥᱟᱹᱛ ᱟᱨ ᱥᱤᱝᱠ",
+    lblBtnPrint: "ᱯᱨᱤᱱᱴ PDF",
+
+    // Bottom Nav
+    navLblHome: "ᱚᱲᱟᱜ",
+    navLblFire: "ᱥᱮᱸᱜᱮᱞ",
+    navLblGas: "ᱜᱮᱥ AR",
+    navLblLoto: "LOTO",
+    navLblCert: "ᱥᱟᱨᱴᱤᱯᱷᱤᱠᱮᱴ"
   },
   Hindi: {
+    mobileAppTitle: "ए.आर. व्यावसायिक सुरक्षा सिमुलेटर",
+    offlineBadge: "⚡ ऑफलाइन डेटाबेस सक्रिय",
+    selectLang: "भाषा:",
+    headerLangLabel: "भाषा:",
+    btnAdmin: "वेब एडमिन",
+    btnMobile: "मोबाइल AR ऐप",
+
+    // Home / Onboarding
+    audioTitle: "हिन्दी में आवाज निर्देश सुनें",
+    audioSub: "आदिवासी कामगारों के लिए ध्वनि निर्देश सुनने हेतु टैप करें",
+    hwAccelTitle: "📱 मोबाइल हार्डवेयर त्वरण",
+    hwAccelLbl: "कैमरा AR व्यू",
+    hwAccelStatus: "सक्रिय (360° जाइरोस्कोप)",
+    selectModuleTitle: "AR सुरक्षा मॉड्यूल चुनें:",
+    mod1Title: "मॉड्यूल 1: अग्नि सुरक्षा एवं PASS सिमुलेटर",
+    mod1Sub: "अग्निशामक चयन एवं निकासी",
+    mod2Title: "मॉड्यूल 2: जहरीली गैस एवं सीमित स्थान सुरक्षा",
+    mod2Sub: "गैस डिटेक्टर HUD एवं 4-पीस PPE",
+    mod3Title: "मॉड्यूल 3: भारी मशीनरी LOTO सुरक्षा नियम",
+    mod3Sub: "लॉक-आउट टैग-आउट ब्रेकर आइसोलेशन",
+    modCertTitle: "AR परीक्षा एवं QR प्रमाणपत्र जनरेटर",
+    modCertSub: "बायोमेट्रिक मिलान एवं गेट सत्यापन",
+
+    // Module 1: Fire & PASS
     fireTitle: "🔥 अग्नि सुरक्षा एवं PASS सिमुलेटर (हिन्दी)",
-    fireStatus: "1. अग्निशामक का प्रकार चुनें (पानी, झाग, CO2, पाउडर):",
-    passStep: "2. PASS तकनीक: पिन खींचें ➔ निशाना लगाएं ➔ हैंडल दबाएं ➔ घुमाएं",
-    gasTitle: "⚠️ जहरीली गैस एवं सीमित स्थान HUD (हिन्दी)",
-    ppeStatus: "आवश्यक 3D सुरक्षा PPE किट पहनें:",
-    lotoTitle: "🚜 भारी मशीनरी LOTO सुरक्षा नियम (हिन्दी)",
-    lotoDesc: "मशीन मरम्मत से पहले पावर ब्रेकर बंद करके लॉक-आउट टैग-आउट लगाएं",
-    certTitle: "डीजीएमएस एआर सुरक्षा प्रमाण पत्र (हिन्दी)",
+    lblExtTitle: "1. अग्निशामक का प्रकार चुनें:",
+    btnExtWater: "🚰 पानी (Water)",
+    btnExtFoam: "🧼 झाग (Foam)",
+    btnExtCo2: "🧯 CO2 गैस",
+    btnExtPowder: "💨 सूखा पाउडर (DCP)",
+    fireExtPrompt: "प्रारंभ करने के लिए ऊपर अग्निशामक चुनें।",
+    waterDanger: "❌ खतरा! बिजली या कोयले की आग पर पानी न डालें! CO2 का उपयोग करें।",
+    extSelected: "सही चुनाव: अग्निशामक चुना गया! नीचे PASS तकनीक का पालन करें।",
+    firePassTitle: "2. PASS तकनीक: पिन खींचें ➔ निशाना लगाएं ➔ दबाएं ➔ घुमाएं",
     passP: "1. पिन खींचें",
     passA: "2. निशाना लगाएं",
     passS1: "3. दबाएं",
     passS2: "4. घुमाएं",
-    ppeHelmet: "🪖 खनन हेलमेट",
-    ppeHarness: "🦺 सुरक्षा हार्नेस",
-    ppeMask: "😷 गैस मास्क",
-    ppeDetector: "📟 गैस डिटेक्टर",
-    lotoSwitchOn: "🔓 पावर चालू (लॉक आउट करने के लिए क्लिक करें)",
+
+    // Module 2: Gas & PPE
+    gasTitle: "⚠️ जहरीली गैस एवं सीमित स्थान HUD (हिन्दी)",
+    lblGasHudTitle: "मल्टी-गैस डिटेक्टर HUD",
+    lblGasWarning: "⚠️ चेतावनी: जहरीली गैस का उच्च स्तर!",
+    lblPpeTitle: "आवश्यक 3D सुरक्षा PPE किट पहनें:",
+    txtPpeHelmet: "🪖 खनन हेलमेट",
+    txtPpeHarness: "🦺 सुरक्षा हार्नेस",
+    txtPpeMask: "😷 गैस मास्क",
+    txtPpeDetector: "📟 गैस डिटेक्टर",
+    ppeVerdictInitial: "प्रवेश के लिए सभी 4 PPE उपकरण पहनें।",
+    ppeVerdictDone: "✅ सभी 4 PPE उपकरण पहने गए! प्रवेश सुरक्षित है।",
+
+    // Module 3: LOTO
+    lotoTitle: "🚜 भारी मशीनरी LOTO सुरक्षा नियम (हिन्दी)",
+    lotoCardTitle: "लॉक-आउट टैग-आउट (LOTO) पावर ब्रेकर बंद",
+    lotoCardDesc: "कन्वेयर या मशीनरी मरम्मत से पहले मेन ब्रेकर बंद कर ताला लगाएं।",
+    lotoSwitchOn: "🔓 मेन पावर ON (लॉक आउट करने के लिए क्लिक करें)",
     lotoSwitchOff: "🔒 LOTO पावर ब्रेकर लॉक आउट (पैडलॉक लागू)",
-    quizTitle: "🎯 AR 'खतरा पहचान' क्विज (हिन्दी)"
+    lotoVerdictDanger: "⚠️ चेतावनी: मशीन चालू है! प्रवेश से पहले LOTO करें।",
+    lotoVerdictSafe: "✅ मशीन आइसोलेटेड। मरम्मत कार्य के लिए सुरक्षित।",
+
+    // Module 4: Hazard Scan & Quiz
+    examStatusTitle: "DGMS व्यावसायिक योग्यता स्थिति",
+    badgeTxtFire: "अग्नि PASS",
+    badgeTxtGas: "गैस & PPE",
+    badgeTxtLoto: "LOTO स्विच",
+    badgeTxtExam: "परीक्षा",
+    phase1Title: "🎯 चरण 1: 3D खदान खतरा पहचान स्कैन",
+    phase1Desc: "धनबाद कोयला सीम में सभी 4 प्रमुख खतरों की पहचान करें:",
+    hazardTag1: "⚡ 11kV खुला केबल",
+    hazardTag2: "💨 2.4% मीथेन गैस जमाव",
+    hazardTag3: "🛒 बिना-रोक ढलान ट्रॉली",
+    hazardTag4: "🪨 छत की कमजोर परत",
+    hazardsSpottedText: "पहचाना गया",
+    phase2Title: "📝 चरण 2: DGMS वैधानिक सुरक्षा प्रश्न",
+    phase2PassThresh: "उत्तीर्ण: ≥80% अनिवार्य",
+    q1Title: "1. कोयला खदान में बिजली की आग पर कौन सा अग्निशामक पूरी तरह वर्जित है?",
+    q1OptA: "🚰 पानी की बौछार (घातक झटका)",
+    q1OptB: "🧯 CO2 गैस",
+    q1OptC: "💨 सूखा पाउडर (DCP)",
+    q2Title: "2. यदि मल्टी-गैस HUD में मीथेन (CH4) > 2.0% दिखे, तो आपका पहला कदम क्या होगा?",
+    q2OptA: "पंखा चलाकर काम जारी रखें",
+    q2OptB: "🚨 हवा के रुख के विपरीत निकलें व ओवरमैन को बताएं",
+    q3Title: "3. CEA नियम 116 के अनुसार कोयला कन्वेयर रोलर सफाई से पहले क्या अनिवार्य है?",
+    q3OptA: "🔒 ब्रेकर बंद कर LOTO पैडलॉक लगाएं",
+    q3OptB: "साथी कामगार को बता दें",
+    lblCandScore: "उम्मीदवार योग्यता स्कोर:",
+    lblScoreThresh: "(पास सीमा: 80%)",
+    btnSubmitExam: "परीक्षा सबमिट करें",
+
+    // Certificate
+    certLockTitle: "DGMS प्रमाणपत्र लॉक है",
+    certLockDesc: "सरकारी प्रमाणपत्र अनलॉक करने हेतु 80% या अधिक अंक प्राप्त करें।",
+    certHeading: "DGMS व्यावसायिक सुरक्षा प्रमाण पत्र",
+    lblBreakdownTitle: "योग्यता विवरण:",
+    lblBkFire: "अग्नि PASS प्रोटोकॉल:",
+    lblBkGas: "जहरीली गैस एवं 3D PPE:",
+    lblBkLoto: "मशीनरी LOTO स्विच:",
+    lblBkExam: "खतरा पहचान एवं परीक्षा:",
+    lblBtnClaim: "प्रमाणित एवं सिंक करें",
+    lblBtnPrint: "प्रिंट PDF",
+
+    // Bottom Nav
+    navLblHome: "होम",
+    navLblFire: "अग्नि AR",
+    navLblGas: "गैस AR",
+    navLblLoto: "LOTO",
+    navLblCert: "प्रमाणपत्र"
   },
   English: {
+    mobileAppTitle: "AR Vocational Simulator",
+    offlineBadge: "⚡ Offline DB Active",
+    selectLang: "Language:",
+    headerLangLabel: "Lang:",
+    btnAdmin: "Web Admin",
+    btnMobile: "Mobile AR App",
+
+    // Home / Onboarding
+    audioTitle: "Listen to Voice Guidance",
+    audioSub: "Tap to play voice guidance for tribal recruits",
+    hwAccelTitle: "📱 Mid-Range Hardware Acceleration",
+    hwAccelLbl: "Camera AR Viewport",
+    hwAccelStatus: "Active (Gyroscope 360° Fallback)",
+    selectModuleTitle: "Select AR Vocational Safety Module:",
+    mod1Title: "Module 1: Fire & PASS Simulator",
+    mod1Sub: "Extinguisher Choice & AR Evacuation",
+    mod2Title: "Module 2: Gas Leak & Confined Space",
+    mod2Sub: "Multi-Gas Detector HUD & 4-Piece PPE",
+    mod3Title: "Module 3: Machinery LOTO Protocol",
+    mod3Sub: "Lock-Out Tag-Out Breaker Isolation",
+    modCertTitle: "AR Quiz & QR Certificate Generator",
+    modCertSub: "Anti-Proxy Face Match & Gate Sync",
+
+    // Module 1: Fire & PASS
     fireTitle: "🔥 Fire Response & PASS Simulator (English)",
-    fireStatus: "1. Select Extinguisher Type (Water, Foam, CO2, Dry Powder):",
-    passStep: "2. PASS Technique: Pull Pin ➔ Aim Base ➔ Squeeze Handle ➔ Sweep",
-    gasTitle: "⚠️ Toxic Gas & Confined Space HUD (English)",
-    ppeStatus: "Equip Required 3D Safety PPE Kit:",
-    lotoTitle: "🚜 Heavy Machinery Lock-Out Tag-Out (English)",
-    lotoDesc: "Isolate power breaker switch before entering maintenance zone",
-    certTitle: "DGMS AR Safety Certificate (English)",
+    lblExtTitle: "1. Select Extinguisher Type:",
+    btnExtWater: "🚰 Water",
+    btnExtFoam: "🧼 Foam",
+    btnExtCo2: "🧯 CO2 Gas",
+    btnExtPowder: "💨 Dry Powder",
+    fireExtPrompt: "Select an extinguisher above to begin.",
+    waterDanger: "❌ DANGER! Do NOT use Water on Electrical/Coal Fires! Use CO2 or Dry Powder.",
+    extSelected: "Correct Choice: Extinguisher selected! Follow PASS Technique below.",
+    firePassTitle: "2. PASS Technique Sequence: Pull ➔ Aim ➔ Squeeze ➔ Sweep",
     passP: "1. PULL",
     passA: "2. AIM",
     passS1: "3. SQUEEZE",
     passS2: "4. SWEEP",
-    ppeHelmet: "🪖 Mining Helmet",
-    ppeHarness: "🦺 Safety Harness",
-    ppeMask: "😷 Gas Rescuer Mask",
-    ppeDetector: "📟 Gas Detector",
+
+    // Module 2: Gas & PPE
+    gasTitle: "⚠️ Toxic Gas & Confined Space HUD (English)",
+    lblGasHudTitle: "MULTI-GAS DETECTOR HUD",
+    lblGasWarning: "⚠️ WARNING: HIGH GAS LEVEL DETECTED",
+    lblPpeTitle: "Required 3D PPE Kit Verification:",
+    txtPpeHelmet: "🪖 Mining Helmet",
+    txtPpeHarness: "🦺 Safety Harness",
+    txtPpeMask: "😷 Gas Rescuer Mask",
+    txtPpeDetector: "📟 Gas Detector",
+    ppeVerdictInitial: "Equip all 4 PPE items to authorize entrance.",
+    ppeVerdictDone: "✅ ALL PPE EQUIPPED! Safe for Confined Space Entry.",
+
+    // Module 3: LOTO
+    lotoTitle: "🚜 Heavy Machinery LOTO Protocol (English)",
+    lotoCardTitle: "Lock-Out Tag-Out (LOTO) Breaker Isolation",
+    lotoCardDesc: "Isolate power before entering dumper or conveyor belt maintenance area.",
     lotoSwitchOn: "🔓 Main Power ON (Click to Lock Out)",
     lotoSwitchOff: "🔒 LOTO Breaker Switch LOCKED OUT (Padlock Applied)",
-    quizTitle: "🎯 AR 'Spot the Hazard' Quiz (English)"
+    lotoVerdictDanger: "⚠️ WARNING: Machine live! Perform LOTO before entry.",
+    lotoVerdictSafe: "✅ Machine Breaker Isolated. Safe for Maintenance.",
+
+    // Module 4: Hazard Scan & Quiz
+    examStatusTitle: "DGMS Vocational Competency Status",
+    badgeTxtFire: "Fire PASS",
+    badgeTxtGas: "Gas & PPE",
+    badgeTxtLoto: "LOTO Switch",
+    badgeTxtExam: "Assessment",
+    phase1Title: "🎯 Phase 1: 3D Mine Hazard Perception Scan",
+    phase1Desc: "Identify all 4 critical hazards in the Dhanbad Coal Seam viewport:",
+    hazardTag1: "⚡ 11kV Exposed Cable",
+    hazardTag2: "💨 2.4% Methane Accumulation",
+    hazardTag3: "🛒 Un-chocked Incline Haulage",
+    hazardTag4: "🪨 Delaminated Roof Layer",
+    hazardsSpottedText: "Identified",
+    phase2Title: "📝 Phase 2: DGMS Statutory Scenario Questions",
+    phase2PassThresh: "Pass: ≥80% Required",
+    q1Title: "1. Which extinguisher is strictly PROHIBITED on electrical fires in coal seams?",
+    q1OptA: "🚰 Water Jet (Fatal Shock)",
+    q1OptB: "🧯 CO2 Gas",
+    q1OptC: "💨 Dry Powder (DCP)",
+    q2Title: "2. If your Multi-Gas HUD alerts Methane (CH4) > 2.0%, what is your immediate statutory action?",
+    q2OptA: "Continue with fan",
+    q2OptB: "🚨 Evacuate upwind & alert Overman",
+    q3Title: "3. Under CEA Rule 116, what must be done before cleaning coal conveyor rollers?",
+    q3OptA: "🔒 Isolate Breaker & Apply LOTO Padlock",
+    q3OptB: "Just inform buddy worker",
+    lblCandScore: "Candidate Competency Score:",
+    lblScoreThresh: "(Threshold: 80%)",
+    btnSubmitExam: "Submit Assessment",
+
+    // Certificate
+    certLockTitle: "DGMS Certificate Locked",
+    certLockDesc: "Complete Hazard Perception & Score ≥ 80% on Statutory Scenarios to unlock official credential.",
+    certHeading: "DGMS VOCATIONAL SAFETY CERTIFICATE",
+    lblBreakdownTitle: "Competency Breakdown:",
+    lblBkFire: "Fire PASS Protocol:",
+    lblBkGas: "Toxic Gas & 3D PPE:",
+    lblBkLoto: "Machinery LOTO Switch:",
+    lblBkExam: "Hazard Perception & Exam:",
+    lblBtnClaim: "Authorize & Sync",
+    lblBtnPrint: "Print PDF",
+
+    // Bottom Nav
+    navLblHome: "Home",
+    navLblFire: "Fire AR",
+    navLblGas: "Gas AR",
+    navLblLoto: "LOTO",
+    navLblCert: "Cert QR"
   }
 };
 
-// Audio Prompts with Phonetic Synthesizer Fallbacks
+// Audio Prompts with Phonetic Synthesizer Fallbacks (Santali Ol Chiki -> Hindi Phonetics for TTS engines)
 const audioPrompts = {
   Santali: {
     display: "ᱡᱚᱦᱟᱨ! ᱡᱷᱟᱨᱠᱷᱚᱸᱰ ᱟᱨ.ᱮ. ᱵᱷᱳᱠᱮᱥᱱᱟᱞ ᱥᱩᱨᱚᱠᱷᱟ ᱴᱨᱮᱱᱤᱝ ᱨᱮ ᱟᱯᱱᱟᱨᱟᱜ ᱥᱟᱹᱜᱩᱱ ᱫᱟᱨᱟᱢ᱾",
-    speak: "जोहार! झारखंड एआर सेफ्टी पोर्टल रे आपनाग सगुन दाराम।",
-    fireWarning: "चेतावनी! सेंगेल लागित CO2 से ड्राई पाउडर बेवहार मे! दाग आलोम दुला!",
-    passInstruction: "पिन ओर ओडोक मे, निसाना बनाओ मे, दबाओ मे आर लातार रे हिलाओ मे!",
-    gasAlert: "चेतावनी! मीथेन आर कार्बन मोनोक्साइड गेस लीक हुयुग काना! मास्क होरोग मे!",
-    certPassed: "मानाव सरि! आम DGMS AR सेफ्टी परिक्षा रेम पास एना!"
+    speak: "जोहार! झारखंड एआर सेफ्टी वोकेशनल ट्रेनिंग रे आपनाग सगुन दाराम। सुरखित ताहेन मे आर नियम मानो मे।",
+    fireWarning: "चेतावनी! बिजली आर कोयला सेंगेल रे दाग आलोम दुला! CO2 से ड्राई पाउडर Extinguisher बेवहार मे!",
+    passInstruction: "पास नियम: पिन ओर ओडोक मे, निसाना बनाओ मे, हैंडल दबाओ मे आर हिलाओ मे!",
+    gasAlert: "खतरा! खदान रे मिथेन आर कार्बन मोनोक्साइड गेस लीक हुयुग काना! तुरंत मास्क होरोग मे!",
+    certPassed: "मानाव सरि! आम DGMS AR वोकेशनल सेफ्टी परिक्षा रेम पास एना! आपनाग लाइसेंस गेट रे सिंक एना।"
   },
   Hindi: {
     display: "जोहार! झारखंड औद्योगिक एआर सुरक्षा पोर्टल में आपका स्वागत है।",
-    speak: "जोहार! झारखंड औद्योगिक एआर सुरक्षा पोर्टल में आपका स्वागत है।",
-    fireWarning: "चेतावनी! बिजली या कोयले की आग पर पानी न डालें! CO2 अग्निशामक का उपयोग करें!",
-    passInstruction: "सुरक्षा पिन खींचें, आग की जड़ पर निशाना लगाएं, हैंडल दबाएं और झाड़ू की तरह घुमाएं!",
-    gasAlert: "खतरा! खदान में जहरीली गैस (मीथेन/कार्बन मोनोक्साइड) का स्तर बढ़ रहा है! तुरंत मास्क पहनें!",
-    certPassed: "बधाई हो! आपने डीजीएमएस एआर सुरक्षा प्रमाणन सफलतापूर्वक उत्तीर्ण कर लिया है।"
+    speak: "जोहार! झारखंड औद्योगिक एआर सुरक्षा एवं व्यावसायिक प्रशिक्षण पोर्टल में आपका स्वागत है। सुरक्षित रहें, सतर्क रहें।",
+    fireWarning: "चेतावनी! बिजली या कोयले की आग पर पानी कभी न डालें! CO2 या सूखा पाउडर अग्निशामक का उपयोग करें!",
+    passInstruction: "PASS तकनीक: सुरक्षा पिन खींचें, आग की जड़ पर निशाना लगाएं, हैंडल दबाएं और झाड़ू की तरह घुमाएं!",
+    gasAlert: "खतरा! खदान में जहरीली मीथेन गैस का स्तर बढ़ रहा है! तुरंत सेल्फ-रेस्क्यूअर गैस मास्क पहनें!",
+    certPassed: "बधाई हो! आपने डीजीएमएस व्यावसायिक एआर सुरक्षा प्रमाणन सफलतापूर्वक उत्तीर्ण कर लिया है।"
   },
   English: {
-    display: "Welcome to Jharkhand Industrial AR Safety & Compliance Portal.",
-    speak: "Welcome to Jharkhand Industrial AR Safety and Compliance Portal.",
-    fireWarning: "Warning! Do not use water on electrical or coal fires! Select CO2 extinguisher.",
-    passInstruction: "Follow PASS technique: Pull pin, aim base, squeeze handle, and sweep side to side.",
-    gasAlert: "Danger! Toxic gas methane level rising. Equip self-rescuer gas mask immediately.",
-    certPassed: "Congratulations! You have passed the official DGMS AR Safety Certification."
+    display: "Welcome to Jharkhand Industrial AR Safety & Vocational Compliance Portal.",
+    speak: "Welcome to Jharkhand Industrial AR Safety and Vocational Certification Portal. Stay safe and compliant.",
+    fireWarning: "Warning! Never use water on electrical or coal seam fires! Select CO2 or dry powder extinguisher.",
+    passInstruction: "PASS technique: Pull safety pin, aim at fire base, squeeze handle, and sweep side to side.",
+    gasAlert: "Danger! Toxic methane gas level rising. Equip self-rescuer gas mask immediately.",
+    certPassed: "Congratulations! You have passed the official DGMS AR Vocational Safety Certification."
   }
 };
 
@@ -237,6 +501,8 @@ document.addEventListener("DOMContentLoaded", () => {
   renderApprovalQueue();
   updateReportsTable();
   setViewMode("admin");
+  const savedLang = localStorage.getItem('jh_ar_language') || "Santali";
+  selectLanguage(savedLang, false);
 });
 
 // Real-Time Live Clock & Ticking Shift Duration Timer
@@ -284,76 +550,190 @@ function playAudioChime(freq = 600, duration = 0.15) {
   }
 }
 
-// Speech Synthesis
-function playAudioPrompt(lang, promptKey) {
-  playAudioChime(800, 0.15);
-
-  const promptObj = audioPrompts[lang] || audioPrompts.Hindi;
+// Voice Speech Synthesis - Bridge to Native Android TTS in APK with Browser WebSpeech fallback
+function playAudioPrompt(lang, promptKey = "speak") {
+  const selectedLang = lang || currentLanguage || "Santali";
+  const promptObj = audioPrompts[selectedLang] || audioPrompts.Hindi;
   const spokenText = promptObj[promptKey] || promptObj.speak || promptObj.display;
 
-  if ('speechSynthesis' in window) {
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(spokenText);
-    utterance.lang = lang === "English" ? "en-IN" : "hi-IN";
-    utterance.rate = 0.9;
-    utterance.pitch = 1.0;
-    utterance.volume = 1.0;
+  // 1. Play tactile acoustic chime
+  playAudioChime(800, 0.15);
 
-    const promptTextContainer = document.getElementById("audio-prompt-text");
-    if (promptTextContainer) {
-      promptTextContainer.innerHTML = `<span class="speaking-wave"><bar></bar><bar></bar><bar></bar></span> <strong>Speaking (${lang}):</strong> "${spokenText.substring(0, 50)}..."`;
+  // 2. Execute via Native Android TTS Bridge if running inside Android APK
+  let playedNative = false;
+  if (window.AndroidTTS && typeof window.AndroidTTS.speak === "function") {
+    try {
+      window.AndroidTTS.speak(spokenText, selectedLang);
+      playedNative = true;
+    } catch (e) {
+      console.warn("AndroidTTS native call failed:", e);
     }
-
-    window.speechSynthesis.speak(utterance);
   }
 
-  showToast(`🔊 ${lang} Audio: "${spokenText.substring(0, 40)}..."`);
+  // 3. Fallback to Web Speech API if in web browser
+  if (!playedNative && 'speechSynthesis' in window) {
+    try {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(spokenText);
+      utterance.lang = (selectedLang === "English") ? "en-IN" : "hi-IN";
+      utterance.rate = 0.88;
+      utterance.pitch = 1.0;
+      utterance.volume = 1.0;
+      window.speechSynthesis.speak(utterance);
+    } catch (e) {
+      console.warn("speechSynthesis call failed:", e);
+    }
+  }
+
+  const promptTextContainer = document.getElementById("audio-prompt-text");
+  if (promptTextContainer) {
+    promptTextContainer.innerHTML = `<span class="speaking-wave"><bar></bar><bar></bar><bar></bar></span> <strong>Speaking (${selectedLang}):</strong> "${spokenText.substring(0, 45)}..."`;
+  }
+
+  showToast(`🔊 ${selectedLang}: "${spokenText.substring(0, 40)}..."`);
 }
 
-function selectLanguage(lang) {
+// Helper to safely set element innerText
+function setText(id, val) {
+  const el = document.getElementById(id);
+  if (el && val !== undefined) {
+    el.innerText = val;
+  }
+}
+
+// Single-Tap Instant 3-Language UI & Audio Switcher
+function selectLanguage(lang, shouldSpeak = true) {
+  if (!translations[lang]) lang = "Santali";
   currentLanguage = lang;
-  
-  // Highlight language toggle buttons across all screens
+  try {
+    localStorage.setItem('jh_ar_language', lang);
+  } catch (e) {}
+
+  // 1. Highlight all 1-tap language toggle buttons across desktop, mobile bar, and in-module headers
   ['Santali', 'Hindi', 'English'].forEach(l => {
     const btns = document.querySelectorAll(`.btn-lang-${l.toLowerCase()}`);
     btns.forEach(btn => {
-      btn.className = (l === lang)
-        ? 'px-2.5 py-1 rounded-lg text-xs font-bold bg-cyan-600 text-white shadow'
-        : 'px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-800 text-slate-400';
+      if (l === lang) {
+        btn.className = btn.className
+          .replace(/bg-slate-800 text-slate-300|bg-slate-800 text-slate-400|border-slate-700/g, '')
+          .trim() + ' bg-cyan-600 text-white shadow-md border-cyan-300 scale-105';
+      } else {
+        btn.className = btn.className
+          .replace(/bg-cyan-600 text-white shadow-md border-cyan-300 scale-105|bg-cyan-600 text-white shadow/g, '')
+          .trim() + ' bg-slate-800 text-slate-400 border-slate-700';
+      }
     });
   });
 
-  // Update Module Text Content
-  const t = translations[lang] || translations.Hindi;
-  const fireTitleEl = document.getElementById("mod-fire-title");
-  const gasTitleEl = document.getElementById("mod-gas-title");
-  const lotoTitleEl = document.getElementById("mod-loto-title");
+  const t = translations[lang];
 
-  if(fireTitleEl) fireTitleEl.innerText = t.fireTitle;
-  if(gasTitleEl) gasTitleEl.innerText = t.gasTitle;
-  if(lotoTitleEl) lotoTitleEl.innerText = t.lotoTitle;
+  // 2. Header & Global UI Localization
+  setText("mobile-app-title", t.mobileAppTitle);
+  setText("mobile-offline-badge", t.offlineBadge);
+  setText("lbl-select-lang", t.selectLang);
+  setText("header-lang-label", t.headerLangLabel);
+  setText("btn-lbl-admin", t.btnAdmin);
+  setText("btn-lbl-mobile", t.btnMobile);
 
-  // Update PASS button labels
-  const passPEl = document.getElementById("pass-p");
-  const passAEl = document.getElementById("pass-a");
-  const passS1El = document.getElementById("pass-s1");
-  const passS2El = document.getElementById("pass-s2");
-  if (passPEl) passPEl.innerText = t.passP;
-  if (passAEl) passAEl.innerText = t.passA;
-  if (passS1El) passS1El.innerText = t.passS1;
-  if (passS2El) passS2El.innerText = t.passS2;
+  // 3. Home / Onboarding Tab
+  setText("audio-prompt-title", t.audioTitle);
+  setText("audio-prompt-sub", t.audioSub);
+  setText("hw-accel-title", t.hwAccelTitle);
+  setText("hw-accel-lbl", t.hwAccelLbl);
+  setText("hw-accel-status", t.hwAccelStatus);
+  setText("select-module-title", t.selectModuleTitle);
+  setText("mod-1-title", t.mod1Title);
+  setText("mod-1-sub", t.mod1Sub);
+  setText("mod-2-title", t.mod2Title);
+  setText("mod-2-sub", t.mod2Sub);
+  setText("mod-3-title", t.mod3Title);
+  setText("mod-3-sub", t.mod3Sub);
+  setText("mod-cert-title", t.modCertTitle);
+  setText("mod-cert-sub", t.modCertSub);
 
-  // Update PPE button labels
-  const ppeHelm = document.querySelector("#ppe-btn-helmet span:first-child");
-  const ppeHarn = document.querySelector("#ppe-btn-harness span:first-child");
-  const ppeMask = document.querySelector("#ppe-btn-mask span:first-child");
-  const ppeDet = document.querySelector("#ppe-btn-detector span:first-child");
-  if (ppeHelm) ppeHelm.innerText = t.ppeHelmet;
-  if (ppeHarn) ppeHarn.innerText = t.ppeHarness;
-  if (ppeMask) ppeMask.innerText = t.ppeMask;
-  if (ppeDet) ppeDet.innerText = t.ppeDetector;
+  // 4. Module 1: Fire & PASS Simulator
+  setText("mod-fire-title", t.fireTitle);
+  setText("lbl-ext-title", t.lblExtTitle);
+  setText("btn-ext-water", t.btnExtWater);
+  setText("btn-ext-foam", t.btnExtFoam);
+  setText("btn-ext-co2", t.btnExtCo2);
+  setText("btn-ext-powder", t.btnExtPowder);
+  setText("fire-pass-title", t.firePassTitle);
+  setText("pass-p", t.passP);
+  setText("pass-a", t.passA);
+  setText("pass-s1", t.passS1);
+  setText("pass-s2", t.passS2);
 
-  playAudioPrompt(lang, 'speak');
+  // 5. Module 2: Toxic Gas & Confined Space
+  setText("mod-gas-title", t.gasTitle);
+  setText("lbl-gas-hud-title", t.lblGasHudTitle);
+  setText("lbl-gas-warning", t.lblGasWarning);
+  setText("lbl-ppe-title", t.lblPpeTitle);
+  setText("txt-ppe-helmet", t.txtPpeHelmet);
+  setText("txt-ppe-harness", t.txtPpeHarness);
+  setText("txt-ppe-mask", t.txtPpeMask);
+  setText("txt-ppe-detector", t.txtPpeDetector);
+
+  // 6. Module 3: Machinery LOTO
+  setText("mod-loto-title", t.lotoTitle);
+  setText("loto-card-title", t.lotoCardTitle);
+  setText("loto-card-desc", t.lotoCardDesc);
+  const btnLoto = document.getElementById("btn-loto-switch");
+  const verdictLoto = document.getElementById("loto-verdict");
+  if (btnLoto) btnLoto.innerText = lotoLocked ? t.lotoSwitchOff : t.lotoSwitchOn;
+  if (verdictLoto) verdictLoto.innerText = lotoLocked ? t.lotoVerdictSafe : t.lotoVerdictDanger;
+
+  // 7. Module 4: Hazard Scan & Statutory Exam
+  setText("exam-status-title", t.examStatusTitle);
+  setText("badge-txt-fire", t.badgeTxtFire);
+  setText("badge-txt-gas", t.badgeTxtGas);
+  setText("badge-txt-loto", t.badgeTxtLoto);
+  setText("badge-txt-exam", t.badgeTxtExam);
+  setText("phase-1-title", t.phase1Title);
+  setText("phase-1-desc", t.phase1Desc);
+  setText("hazard-tag-1", t.hazardTag1);
+  setText("hazard-tag-2", t.hazardTag2);
+  setText("hazard-tag-3", t.hazardTag3);
+  setText("hazard-tag-4", t.hazardTag4);
+  setText("phase-2-title", t.phase2Title);
+  setText("phase-2-pass-thresh", t.phase2PassThresh);
+  setText("q1-title", t.q1Title);
+  setText("q1-opt-a", t.q1OptA);
+  setText("q1-opt-b", t.q1OptB);
+  setText("q1-opt-c", t.q1OptC);
+  setText("q2-title", t.q2Title);
+  setText("q2-opt-a", t.q2OptA);
+  setText("q2-opt-b", t.q2OptB);
+  setText("q3-title", t.q3Title);
+  setText("q3-opt-a", t.q3OptA);
+  setText("q3-opt-b", t.q3OptB);
+  setText("lbl-cand-score", t.lblCandScore);
+  setText("lbl-score-thresh", t.lblScoreThresh);
+  setText("btn-submit-exam", t.btnSubmitExam);
+
+  // 8. DGMS Vocational Certificate Screen
+  setText("cert-lock-title", t.certLockTitle);
+  setText("cert-lock-desc", t.certLockDesc);
+  setText("cert-heading", t.certHeading);
+  setText("lbl-breakdown-title", t.lblBreakdownTitle);
+  setText("lbl-bk-fire", t.lblBkFire);
+  setText("lbl-bk-gas", t.lblBkGas);
+  setText("lbl-bk-loto", t.lblBkLoto);
+  setText("lbl-bk-exam", t.lblBkExam);
+  setText("lbl-btn-claim", t.lblBtnClaim);
+  setText("lbl-btn-print", t.lblBtnPrint);
+
+  // 9. Bottom Navigation Bar
+  setText("nav-lbl-home", t.navLblHome);
+  setText("nav-lbl-fire", t.navLblFire);
+  setText("nav-lbl-gas", t.navLblGas);
+  setText("nav-lbl-loto", t.navLblLoto);
+  setText("nav-lbl-cert", t.navLblCert);
+
+  // 10. Trigger spoken audio guidance
+  if (shouldSpeak) {
+    playAudioPrompt(lang, 'speak');
+  }
 }
 
 // Manager Approval Queue Render & Approval Actions
@@ -843,7 +1223,16 @@ function switchMobileTab(tabId) {
     }
   });
 
-  if(tabId === 'tab-cert') {
+  // Re-apply language translations to ensure all dynamic elements in this tab are localized
+  selectLanguage(currentLanguage, false);
+
+  if (tabId === 'tab-fire') {
+    playAudioPrompt(currentLanguage, 'fireWarning');
+  } else if (tabId === 'tab-gas') {
+    playAudioPrompt(currentLanguage, 'gasAlert');
+  } else if (tabId === 'tab-machinery') {
+    playAudioPrompt(currentLanguage, 'passInstruction');
+  } else if (tabId === 'tab-cert') {
     generateCertificateView();
   }
 }
@@ -922,16 +1311,22 @@ function initARFireCanvas() {
 function selectExtinguisher(type) {
   selectedExtinguisher = type;
   const statusBox = document.getElementById("fire-ext-status");
+  const t = translations[currentLanguage] || translations.Santali;
 
   if (type === "Water") {
     playAudioPrompt(currentLanguage, "fireWarning");
-    statusBox.className = "p-2 rounded bg-red-900/60 border border-red-500 text-red-200 text-xs text-center font-bold animate-bounce";
-    statusBox.innerText = "❌ DANGER! Do NOT use Water on Electrical/Coal Fires! Use CO2 or Dry Powder.";
+    if (statusBox) {
+      statusBox.className = "p-2 rounded bg-red-900/60 border border-red-500 text-red-200 text-xs text-center font-bold animate-bounce";
+      statusBox.innerText = t.waterDanger;
+    }
   } else {
-    statusBox.className = "p-2 rounded bg-emerald-900/60 border border-emerald-500 text-emerald-200 text-xs text-center font-bold";
-    statusBox.innerText = `✅ Correct Choice: ${type} Extinguisher selected! Follow PASS Technique below.`;
+    if (statusBox) {
+      statusBox.className = "p-2 rounded bg-emerald-900/60 border border-emerald-500 text-emerald-200 text-xs text-center font-bold";
+      statusBox.innerText = `✅ ${t.extSelected} (${type})`;
+    }
     passStep = 1;
     updatePASSDisplay();
+    playAudioPrompt(currentLanguage, "passInstruction");
   }
 }
 
@@ -998,6 +1393,7 @@ function initARGasCanvas() {
 function togglePPE(item) {
   ppeSelected[item] = !ppeSelected[item];
   const btn = document.getElementById(`ppe-btn-${item}`);
+  const t = translations[currentLanguage] || translations.Santali;
   if (btn) {
     btn.className = ppeSelected[item]
       ? "p-2 rounded-lg bg-emerald-600 text-white font-bold text-xs flex items-center justify-between"
@@ -1009,10 +1405,11 @@ function togglePPE(item) {
   if (verdict) {
     if (allEquipped) {
       verdict.className = "p-2 rounded bg-emerald-950 border border-emerald-500 text-emerald-300 text-xs text-center font-bold";
-      verdict.innerText = "✅ ALL PPE EQUIPPED! Safe for Confined Space Entry.";
+      verdict.innerText = t.ppeVerdictDone;
+      playAudioPrompt(currentLanguage, "gasAlert");
     } else {
       verdict.className = "p-2 rounded bg-slate-900 border border-slate-700 text-slate-400 text-xs text-center";
-      verdict.innerText = "Equip all 4 PPE items to authorize entrance.";
+      verdict.innerText = t.ppeVerdictInitial;
     }
   }
 }
@@ -1021,16 +1418,27 @@ function toggleLOTO() {
   lotoLocked = !lotoLocked;
   const btn = document.getElementById("btn-loto-switch");
   const status = document.getElementById("loto-verdict");
+  const t = translations[currentLanguage] || translations.Santali;
   
   if (lotoLocked) {
-    if (btn) btn.className = "w-full py-2.5 rounded-xl bg-emerald-600 text-white font-extrabold text-xs shadow-lg";
-    if (btn) btn.innerHTML = "🔒 LOTO Breaker Switch LOCKED OUT (Padlock Applied)";
-    if (status) status.innerHTML = "✅ Machine Breaker Isolated. Safe for Maintenance.";
-    playAudioPrompt(currentLanguage, "speak");
+    if (btn) {
+      btn.className = "w-full py-2.5 rounded-xl bg-emerald-600 text-white font-extrabold text-xs shadow-lg";
+      btn.innerText = t.lotoSwitchOff;
+    }
+    if (status) {
+      status.className = "text-[10px] text-emerald-400 font-bold";
+      status.innerText = t.lotoVerdictSafe;
+    }
+    playAudioPrompt(currentLanguage, "passInstruction");
   } else {
-    if (btn) btn.className = "w-full py-2.5 rounded-xl bg-red-600 text-white font-extrabold text-xs shadow-lg";
-    if (btn) btn.innerHTML = "🔓 Main Power ON (Click to Lock Out)";
-    if (status) status.innerHTML = "⚠️ WARNING: Machine live! Perform LOTO before entry.";
+    if (btn) {
+      btn.className = "w-full py-2.5 rounded-xl bg-red-600 text-white font-extrabold text-xs shadow-lg";
+      btn.innerText = t.lotoSwitchOn;
+    }
+    if (status) {
+      status.className = "text-[10px] text-amber-400 font-bold";
+      status.innerText = t.lotoVerdictDanger;
+    }
   }
 }
 
@@ -1040,14 +1448,15 @@ let examUnlocked = false;
 
 function spotHazard(id) {
   const tag = document.getElementById(`hazard-tag-${id}`);
+  const t = translations[currentLanguage] || translations.Santali;
   if (tag && !tag.dataset.spotted) {
     tag.dataset.spotted = "true";
     tag.className = "absolute px-2 py-1 bg-emerald-600 text-white font-bold text-[9px] rounded shadow-lg animate-pulse";
-    tag.innerText = "✓ HAZARD IDENTIFIED";
+    tag.innerText = "✓ " + (t.hazardsSpottedText || "Identified");
     hazardsSpotted++;
 
     const countEl = document.getElementById("hazards-spotted-count");
-    if (countEl) countEl.innerText = `${hazardsSpotted} / 4 Identified`;
+    if (countEl) countEl.innerText = `${hazardsSpotted} / 4 ${t.hazardsSpottedText || "Identified"}`;
 
     playAudioChime(950, 0.15);
     calculateCurrentScore();
@@ -1152,6 +1561,7 @@ function evaluateFullAssessment() {
   }
 
   playAudioChime(1200, 0.35);
+  playAudioPrompt(currentLanguage, "certPassed");
   showToast(`🏆 DGMS Competency Exam Passed (${examScorePercent}%)! Official Certificate Unlocked.`);
 }
 
